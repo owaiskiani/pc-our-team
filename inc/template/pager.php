@@ -83,43 +83,10 @@ $pc_full_content = '';
                         $pc_full_content .= '</div>';
                         /** Social Links End */
                         /** Skills Start */
-//                        $pc_full_content .= '<div class="pc_team_skills">';
-//                        $pc_full_content .= '<h2>Skills</h2>';
-//                        if (get_post_meta(get_the_ID(), 'team_member_skill1', true)) :
-//                            $pc_full_content .= get_post_meta(get_the_ID(), 'team_member_skill1', true);
-//                        endif;
-//
-//                        if (get_post_meta(get_the_ID(), 'team_member_skill_value1', true)) :
-//                            $pc_full_content .= '<div class="progress" style="width:' . get_post_meta(get_the_ID(), 'team_member_skill_value1', true) . '0%"></div>';
-//                        endif;
-//
-//
-//                        if (get_post_meta(get_the_ID(), 'team_member_skill2', true)) :
-//                            $pc_full_content .= get_post_meta(get_the_ID(), 'team_member_skill2', true);
-//                        endif;
-//
-//                        if (get_post_meta(get_the_ID(), 'team_member_skill_value2', true)) :
-//                            $pc_full_content .= '<div class="progress" style="width:' . get_post_meta(get_the_ID(), 'team_member_skill_value2', true) . '0%"></div>';
-//                        endif;
-//
-//
-//                        if (get_post_meta(get_the_ID(), 'team_member_skill3', true)) :
-//                            $pc_full_content .= get_post_meta(get_the_ID(), 'team_member_skill3', true);
-//                        endif;
-//
-//                        if (get_post_meta(get_the_ID(), 'team_member_skill_value3', true)) :
-//                            $pc_full_content .= '<div class="progress" style="width:' . get_post_meta(get_the_ID(), 'team_member_skill_value3', true) . '0%"></div>';
-//                        endif;
-//
-//
-//                        if (get_post_meta(get_the_ID(), 'team_member_skill4', true)) :
-//                            $pc_full_content .= get_post_meta(get_the_ID(), 'team_member_skill4', true);
-//                        endif;
-//
-//                        if (get_post_meta(get_the_ID(), 'team_member_skill_value4', true)) :
-//                            $pc_full_content .= '<div class="progress" style="width:' . get_post_meta(get_the_ID(), 'team_member_skill_value4', true) . '0%"></div>';
-//                        endif;
-//                        $pc_full_content .= '</div>';
+                        $pc_full_content .= '<div class="pc_team_skills">';
+                        $pc_full_content .= '<h2>Skills</h2>';
+                        $pc_full_content .= $this->pc_get_skills_html(get_the_ID());
+                        $pc_full_content .= '</div>';
                         /** Skills End */
                         $pc_full_content .= '</div>';
                         $pc_full_content .= '</div>';

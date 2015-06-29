@@ -262,6 +262,7 @@ if (!class_exists('Pearlcore_Team_Plugin')) :
             wp_enqueue_script('pearlcore_team_default_script_hc', PC_TEAM_URL . 'inc/script/hc.js', array('jquery'), '1.0');
             wp_enqueue_script('pearlcore_team_default_script_carousel', PC_TEAM_URL . 'inc/script/carousel.js', array('jquery'), '1.0');
             wp_enqueue_script('pearlcore_team_default_script_jquery.roundabout.min', PC_TEAM_URL . 'inc/script/jquery.roundabout.min.js', array('jquery'), '1.0');
+            wp_enqueue_script('pearlcore_team_default_script_wookmark', PC_TEAM_URL . 'inc/script/wookmark.js', array('jquery'), '1.0');
 
             // plugin main script
             wp_enqueue_script('pearlcore_team_default_script', PC_TEAM_URL . 'inc/script/pc_our_team.js', array('jquery'), '1.0');
@@ -298,22 +299,23 @@ if (!class_exists('Pearlcore_Team_Plugin')) :
                 <div id="pc_our_team_lightbox" class="scrollbar-macosx">
                     <div class="pc_our_team_lightbox permanent">
                         <div class="width25 left">
+                            <div class="pc_image_wrapper">
                             <img src="" class="image circle"/>
+                            </div>
                             <h4 class="title"></h4>
                             <div class="social "></div>
                         </div>
 
-                        <div class="left width50">
+                        <div class="left width75">
                             <h2 class="name"></h2>
                             <div class="sc-content"></div>
-                        </div>
-
-                        <div class="width25 left">
                             <h2 class="skills-title">My Skills</h2>
                             <div class="skills">
 
                             </div>
                         </div>
+
+                        
                         <div class="pc_our_team_loghtbox_close">
                             <span></span>
                         </div>
@@ -572,7 +574,8 @@ if (!class_exists('Pearlcore_Team_Plugin')) :
             <style>
                 #pc_our_team a,
                 .pc_our_team_lightbox .name,
-                .pc_our_team_lightbox .title,.out_team_title h4 a,.next_team .inner_icon i,.prev_team .inner_icon i{ 
+                .pc_our_team_lightbox .title,.out_team_title h4 a,.next_team .inner_icon i,.prev_team .inner_icon i,
+                #pc_our_team_lightbox .pc_our_team_lightbox .skills-title{ 
                     color: #<?php echo $this->options['text_color']; ?>; 
                 }
                 .grid#pc_our_team .pc_team_member .pc_team_member_name,
@@ -634,37 +637,7 @@ if (!class_exists('Pearlcore_Team_Plugin')) :
                     if ($this->options['single_skills'] == 'yes'):
                         $content .= '<div class="pc_team_skills">';
                         $content .= '<h2 class="skills-title">My Skills</h2>';
-
-                        if (get_post_meta(get_the_ID(), 'team_member_skill1', true)) :
-                            $content .= get_post_meta(get_the_ID(), 'team_member_skill1', true);
-                        endif;
-
-                        if (get_post_meta(get_the_ID(), 'team_member_skill_value1', true)) :
-                            $content .= '<div class="progress" style="width: ' . get_post_meta(get_the_ID(), "team_member_skill_value1", true) . '0%;"></div>';
-                        endif;
-                        if (get_post_meta(get_the_ID(), 'team_member_skill2', true)) :
-                            $content .= get_post_meta(get_the_ID(), 'team_member_skill2', true);
-                        endif;
-
-                        if (get_post_meta(get_the_ID(), 'team_member_skill_value2', true)) :
-                            $content .= '<div class="progress" style="width: ' . get_post_meta(get_the_ID(), "team_member_skill_value2", true) . '0%"></div>';
-                        endif;
-
-                        if (get_post_meta(get_the_ID(), 'team_member_skill3', true)) :
-                            $content .= get_post_meta(get_the_ID(), 'team_member_skill3', true);
-                        endif;
-
-                        if (get_post_meta(get_the_ID(), 'team_member_skill_value3', true)) :
-                            $content .= '<div class="progress" style="width:' . get_post_meta(get_the_ID(), "team_member_skill_value3", true) . '0%"></div>';
-                        endif;
-
-                        if (get_post_meta(get_the_ID(), 'team_member_skill4', true)) :
-                            $content .= get_post_meta(get_the_ID(), 'team_member_skill4', true);
-                        endif;
-
-                        if (get_post_meta(get_the_ID(), 'team_member_skill_value4', true)) :
-                            $content .= '<div class="progress" style="width:' . get_post_meta(get_the_ID(), "team_member_skill_value4", true) . '0%"></div>';
-                        endif;
+                        $content .= $this->pc_get_skills_html(get_the_ID());
                         $content .= '</div>';
                     endif;
                 endif;
@@ -771,46 +744,51 @@ if (!class_exists('Pearlcore_Team_Plugin')) :
             return $single_template;
         }
 
+        public function pc_get_skills_html($member_id) {
+            $member_skills = '';
+            if (get_post_meta($member_id, 'team_member_skill1', true) && get_post_meta($member_id, 'team_member_skill_value1', true)) :
+                $member_skills .= '<div class="pc_skill_bar" data-percent="'.get_post_meta($member_id, 'team_member_skill_value1', true).'%">';
+                $member_skills .= '<div class="pc_skill_bar_title">';
+                $member_skills .= '<span>'.get_post_meta($member_id, 'team_member_skill1', true).'</span>';
+                $member_skills .= '</div>';
+                $member_skills .= '<div class="pc_skill_bar_bar" style="width: '.get_post_meta($member_id, 'team_member_skill_value1', true).'%;"></div>';
+                $member_skills .= '<div class="pc_skill_bar_bar_percent">'.get_post_meta($member_id, 'team_member_skill_value1', true).'%</div>';
+                $member_skills .= '</div>';
+            endif;
+            
+            if (get_post_meta($member_id, 'team_member_skill2', true) && get_post_meta($member_id, 'team_member_skill_value2', true)) :
+                $member_skills .= '<div class="pc_skill_bar" data-percent="'.get_post_meta($member_id, 'team_member_skill_value2', true).'%">';
+                $member_skills .= '<div class="pc_skill_bar_title">';
+                $member_skills .= '<span>'.get_post_meta($member_id, 'team_member_skill2', true).'</span>';
+                $member_skills .= '</div>';
+                $member_skills .= '<div class="pc_skill_bar_bar" style="width: '.get_post_meta($member_id, 'team_member_skill_value2', true).'%;"></div>';
+                $member_skills .= '<div class="pc_skill_bar_bar_percent">'.get_post_meta($member_id, 'team_member_skill_value2', true).'%</div>';
+                $member_skills .= '</div>';
+            endif;
+            
+            if (get_post_meta($member_id, 'team_member_skill3', true) && get_post_meta($member_id, 'team_member_skill_value3', true)) :
+                $member_skills .= '<div class="pc_skill_bar" data-percent="'.get_post_meta($member_id, 'team_member_skill_value3', true).'%">';
+                $member_skills .= '<div class="pc_skill_bar_title">';
+                $member_skills .= '<span>'.get_post_meta($member_id, 'team_member_skill3', true).'</span>';
+                $member_skills .= '</div>';
+                $member_skills .= '<div class="pc_skill_bar_bar" style="width: '.get_post_meta($member_id, 'team_member_skill_value3', true).'%;"></div>';
+                $member_skills .= '<div class="pc_skill_bar_bar_percent">'.get_post_meta($member_id, 'team_member_skill_value3', true).'%</div>';
+                $member_skills .= '</div>';
+            endif;
+            
+            if (get_post_meta($member_id, 'team_member_skill4', true) && get_post_meta($member_id, 'team_member_skill_value4', true)) :
+                $member_skills .= '<div class="pc_skill_bar" data-percent="'.get_post_meta($member_id, 'team_member_skill_value4', true).'%">';
+                $member_skills .= '<div class="pc_skill_bar_title">';
+                $member_skills .= '<span>'.get_post_meta($member_id, 'team_member_skill4', true).'</span>';
+                $member_skills .= '</div>';
+                $member_skills .= '<div class="pc_skill_bar_bar" style="width: '.get_post_meta($member_id, 'team_member_skill_value4', true).'%;"></div>';
+                $member_skills .= '<div class="pc_skill_bar_bar_percent">'.get_post_meta($member_id, 'team_member_skill_value4', true).'%</div>';
+                $member_skills .= '</div>';
+            endif;
+            
+            return $member_skills;
+        }
+
     }
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
 
     endif;
