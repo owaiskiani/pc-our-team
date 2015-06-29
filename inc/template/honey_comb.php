@@ -1,0 +1,121 @@
+<?php
+/*
+ * Short description
+ * @author pearlcore <info@pearlcore.com>
+ * 
+ */
+$args = $this->pc_get_args($group);
+$members = new WP_Query($args);
+?>
+<style>
+    .honeycombs .inner_span{
+        background-color: #<?php echo $this->options['honeycomb_color']; ?>;
+    }
+    .pc_our_team_lightbox .name{ color: #<?php echo $this->options['honeycomb_color']; ?>; }
+    #pc_our_team_lightbox .progress{ background: #<?php echo $this->options['honeycomb_color']; ?>;}
+    .pc_our_team_lightbox.honeycomb .progress{ background: #<?php echo $this->options['honeycomb_color']; ?> !important;}
+    .pc_our_team_lightbox.honeycomb .name{ color: #<?php echo $this->options['honeycomb_color']; ?>; }
+    #pc_our_team_lightbox .pc_our_team_lightbox .title{ color: #<?php echo $this->options['honeycomb_color']; ?>; }
+
+</style>
+
+<div id="pc_our_team" class="hc sc-col3 honeycombs honeycombs-wrapper">
+    <div class="honeycombs-inner-wrapper">
+        <?php
+        if ($members->have_posts()) {
+
+            while ($members->have_posts()) {
+                $members->the_post();
+                ?>
+                <div itemscope="" itemtype="http://schema.org/Person" class="pc_team_member comb pc_team_single_popup" >
+                    <?php
+                    if (has_post_thumbnail()) {
+                        $medium_image_url = wp_get_attachment_image_src(get_post_thumbnail_id($members->ID), 'medium');
+                        $sa_user_image = $medium_image_url[0];
+                        echo '<img src="' . $sa_user_image . '" class="attachment-medium wp-post-image"/>';
+                    } else {
+                        $sa_user_image = PC_TEAM_URL . 'inc/img/noprofile.jpg';
+                        echo '<img src="' . $sa_user_image . '" class="attachment-medium wp-post-image"/>';
+                    }
+                    ?>
+                    <span style="display: none;">
+                        <b>
+                            <?php if ('yes' == $this->options['name']) : ?>
+                                <div itemprop="name" class="pc_team_member_name">
+                                    <a href="<?php the_permalink() ?>" rel="bookmark" >                            
+                                        <?php the_title() ?>
+                                    </a>
+                                </div>
+                            <?php endif; ?>
+
+                            <?php if ('yes' == $this->options['title']) : ?>
+                                <div itemprop="jobtitle" class="pc_team_member_jobtitle">
+                                    <?php echo get_post_meta(get_the_ID(), 'team_member_title', true); ?>
+                                </div>
+                            <?php endif; ?>
+
+
+                            <div class="pc_team_content" style="display:none;">
+                                <?php the_content(); ?>
+                            </div>                            
+
+                            <div class='icons <?php echo 'yes' == $this->options['social'] ? '' : 'hidden'; ?>' style="display:none;">
+                                <?php
+                                $facebook = get_post_meta(get_the_ID(), 'team_member_facebook', true);
+                                $twitter = get_post_meta(get_the_ID(), 'team_member_twitter', true);
+                                $linkedin = get_post_meta(get_the_ID(), 'team_member_linkedin', true);
+                                $gplus = get_post_meta(get_the_ID(), 'team_member_gplus', true);
+                                $email = get_post_meta(get_the_ID(), 'team_member_email', true);
+                                $this->get_social($facebook, $twitter, $linkedin, $gplus, $email);
+                                ?>
+                            </div>                          
+
+                            <div class="pc_team_skills">
+                                <?php if (get_post_meta(get_the_ID(), 'team_member_skill1', true)) : ?>
+                                    <?php echo get_post_meta(get_the_ID(), 'team_member_skill1', true); ?>
+                                <?php endif; ?>
+
+                                <?php if (get_post_meta(get_the_ID(), 'team_member_skill_value1', true)) : ?>
+                                    <div class="progress" style="width: <?php echo get_post_meta(get_the_ID(), 'team_member_skill_value1', true); ?>0%"></div>
+                                <?php endif; ?>
+
+
+                                <?php if (get_post_meta(get_the_ID(), 'team_member_skill2', true)) : ?>
+                                    <?php echo get_post_meta(get_the_ID(), 'team_member_skill2', true); ?>
+                                <?php endif; ?>
+
+                                <?php if (get_post_meta(get_the_ID(), 'team_member_skill_value2', true)) : ?>
+                                    <div class="progress" style="width: <?php echo get_post_meta(get_the_ID(), 'team_member_skill_value2', true); ?>0%"></div>
+                                <?php endif; ?>
+
+
+                                <?php if (get_post_meta(get_the_ID(), 'team_member_skill3', true)) : ?>
+                                    <?php echo get_post_meta(get_the_ID(), 'team_member_skill3', true); ?>
+                                <?php endif; ?>
+
+                                <?php if (get_post_meta(get_the_ID(), 'team_member_skill_value3', true)) : ?>
+                                    <div class="progress" style="width: <?php echo get_post_meta(get_the_ID(), 'team_member_skill_value3', true); ?>0%"></div>
+                                <?php endif; ?>
+
+
+                                <?php if (get_post_meta(get_the_ID(), 'team_member_skill4', true)) : ?>
+                                    <?php echo get_post_meta(get_the_ID(), 'team_member_skill4', true); ?>
+                                <?php endif; ?>
+
+                                <?php if (get_post_meta(get_the_ID(), 'team_member_skill_value4', true)) : ?>
+                                    <div class="progress" style="width: <?php echo get_post_meta(get_the_ID(), 'team_member_skill_value4', true); ?>0%"></div>
+                                <?php endif; ?>
+                            </div>  
+                        </b>
+                    </span>
+                </div>
+
+
+                <?php
+            }
+        } else {
+            echo 'There are no team members to display';
+        }
+        ?>
+    </div>
+</div>

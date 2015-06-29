@@ -1,0 +1,1596 @@
+/* 
+    Document   : pc_our_team
+    Created on : Jun 23, 2014, 7:07:26 PM
+    Author     : Pearlcore
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.left{ float: left; box-sizing: border-box; }
+
+.pc_team_member .pc_team_member_name a{ text-decoration: none;}
+#pc_our_team_lightbox{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background: rgba(0,0,0,0.75);
+    display: none;
+}
+.pc_team_single_popup{
+    cursor: pointer;
+}
+#pc_our_team_lightbox .pc_our_team_loghtbox_close{
+    width: 100%;
+    float: left;
+}
+#pc_our_team_lightbox .pc_our_team_loghtbox_close span{
+    float: right;
+    text-align: center;
+    line-height: 19px;
+    margin-right: 15px;
+    width: 30px;
+    height: 30px;
+    background: url(../img/pc-icons.png) 2px 1px no-repeat;
+    cursor: pointer;
+}
+#pc_our_team_lightbox .icons{ display: none;}
+
+#pc_our_team_lightbox .pc_our_team_lightbox .social a{
+    display: inline-block;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+#pc_our_team_lightbox .pc_our_team_lightbox .social a img{
+    width: 25px;
+}
+#pc_our_team_lightbox .progress{
+    height: 12px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    background-color: #F5F5F5;
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);    
+}
+#pc_our_team_lightbox .title{
+    font-weight: 600;
+    font-size: 18px;
+}
+#pc_our_team_lightbox .pc_our_team_lightbox .social{
+    text-align: center;
+}
+#pc_our_team_lightbox .pc_our_team_lightbox{
+    box-shadow: 0 0 4px #fff;
+    -moz-box-shadow: 0 0 4px #fff;
+    -webkit-box-shadow: 0 0 4px #fff;
+    overflow: hidden;
+    display: none;
+    background: #fff;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+
+}
+
+.pc_our_team_lightbox.honeycomb .social img{
+    display: inline-block !important;
+}
+.pc_our_team_lightbox .image.circle{
+    width: 155px;
+    height: 155px;
+    border-radius: 100%;
+}
+/**
+* Grid CSS
+*/
+.grid#pc_our_team{
+    overflow: hidden;
+    width: 100%;
+}
+.grid#pc_our_team .pc_team_member{
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 5px;
+
+}
+.grid#pc_our_team .pc_team_member .pc_team_skills,
+.carousel#pc_our_team .pc_team_member .pc_team_skills,
+.grid_circles#pc_our_team .pc_team_member .pc_team_skills,
+.grid_circles2#pc_our_team .pc_team_member .pc_team_skills,
+.honeycombs#pc_our_team .pc_team_member .pc_team_skills{
+    display: none;
+}
+.grid#pc_our_team .pc_team_member:hover .pc_team_member_name,
+.grid#pc_our_team .pc_team_member:hover .pc_team_member_jobtitle,
+.grid_circles#pc_our_team .pc_team_member:hover .pc_team_member_name,
+.grid_circles#pc_our_team .pc_team_member:hover .pc_team_member_jobtitle{
+    left: -100%;
+}
+.grid_circles2#pc_our_team .pc_team_member:hover .pc_team_member_name,
+.grid_circles2#pc_our_team .pc_team_member:hover .pc_team_member_jobtitle{
+    display: block;
+}
+.grid#pc_our_team .pc_team_member:hover .wp-post-image{
+
+
+}
+
+
+.grid#pc_our_team .pc_team_member .wp-post-image{
+    transition: 0.45s all ease-in-out;
+    -moz-transition: 0.45s all ease-in-out;
+    -webkit-transition: 0.45s all ease-in-out;
+}
+.grid#pc_our_team .pc_team_member .wp-post-image.zoomIn{
+    transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+}
+.grid#pc_our_team .pc_team_member .icons{
+    z-index: 9;
+    position: absolute;
+    bottom: -25px;
+    display: block;
+    width: 100%;
+    text-align: center;
+    /*display: none;*/
+    transition: 0.45s all ease-in-out;
+    -moz-transition: 0.45s all ease-in-out;
+    -webkit-transition: 0.45s all ease-in-out;    
+    /*opacity: 0;*/
+}
+.grid_circles#pc_our_team .pc_team_member .icons,
+.grid_circles2#pc_our_team .pc_team_member .icons{
+    opacity: 0;
+    position: absolute;   
+    text-align: center;    
+    transition: 0.45s all ease-in-out;
+    -moz-transition: 0.45s all ease-in-out;
+    -webkit-transition: 0.45s all ease-in-out;  
+    bottom: 20%;
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+    z-index: 9;
+
+}
+.carousel#pc_our_team .pc_team_member .icons{
+    text-align: center;
+    margin: 15px 0 0 0;
+}
+.carousel#pc_our_team .pc_team_member .icons a{
+    display: inline-block;
+    width: 25px;
+    margin-right: 5px;
+}
+.honeycombs#pc_our_team .pc_team_member .icons{
+    position: absolute;
+    bottom: 20px;
+    z-index: 999;
+}
+.grid#pc_our_team .pc_team_member .icons.hidden,
+.grid_circles#pc_our_team .pc_team_member .icons.hidden,
+.grid_circles2#pc_our_team .pc_team_member .icons.hidden,
+.honeycombs#pc_our_team .pc_team_member .icons.hidden{
+    display: none;
+}
+.grid#pc_our_team .pc_team_member .pc_team_content,
+.carousel#pc_our_team .pc_team_member .pc_team_content,
+.grid_circles#pc_our_team .pc_team_member .pc_team_content,
+.grid_circles2#pc_our_team .pc_team_member .pc_team_content,
+.honeycombs#pc_our_team .pc_team_member .pc_team_content{
+    /*display: none;*/
+}
+.honeycomb-lightbox #pc_our_team_lightbox .pc_our_team_lightbox .social a img{
+    display: inline-block !important;
+}
+.grid#pc_our_team .pc_team_member:hover .icons{
+
+    bottom: 20px;
+}
+
+.grid_circles#pc_our_team .pc_team_member:hover .icons,
+.grid_circles2#pc_our_team .pc_team_member:hover .icons{
+    opacity: 1;
+}
+
+.grid#pc_our_team .pc_team_member .icons img,
+.grid_circles#pc_our_team .pc_team_member .icons img,
+.grid_circles2#pc_our_team .pc_team_member .icons img{
+    width: 25px;
+    margin-right: 5px;
+
+}
+.grid#pc_our_team .pc_team_member .pc_team_member_jobtitle,
+.grid#pc_our_team .pc_team_member .pc_team_member_name,
+.grid_circles#pc_our_team .pc_team_member .pc_team_member_jobtitle,
+.grid_circles#pc_our_team .pc_team_member .pc_team_member_name{
+    height: 24px;
+    line-height: 26px;
+}
+.grid#pc_our_team .pc_team_member img.wp-post-image{
+
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    float: none;
+    border: none;
+    padding: 0;
+}
+.grid#pc_our_team .pc_team_member .pc_team_member_name{
+    font-weight: bold;
+    font-size: 20px;
+    position: absolute;
+    left: 0;
+    bottom: 40px;
+    padding: 5px 10px;
+    height: 30px;
+    transition: 0.45s all ease-in-out;
+    -moz-transition: 0.45s all ease-in-out;
+    -webkit-transition: 0.45s all ease-in-out;
+    overflow: hidden;
+}
+
+.grid_circles#pc_our_team .pc_team_member .pc_team_member_name,
+.grid_circles2#pc_our_team .pc_team_member .pc_team_member_name{
+    position: absolute;
+    top: 40%;
+    left: 0;
+    margin: 0 auto;
+    width: 70%;
+    display: block;
+    transition: 0.45s all ease-in-out;
+    -moz-transition: 0.45s all ease-in-out;
+    -webkit-transition: 0.45s all ease-in-out; 
+    opacity: 0.9;
+}
+
+
+
+.grid#pc_our_team .pc_team_member .pc_team_member_jobtitle{
+    position: absolute;
+    padding: 5px 10px;
+    bottom: 10px;
+    left: 0;
+    height: 30px;
+    line-height: 25px;
+    color: #ffffff;
+    transition: 0.35s all ease-in-out;
+    -moz-transition: 0.35s all ease-in-out;
+    -webkit-transition: 0.35s all ease-in-out;    
+}
+
+.grid_circles#pc_our_team .pc_team_member .pc_team_member_jobtitle,
+.grid_circles2#pc_our_team .pc_team_member .pc_team_member_jobtitle{
+    position: absolute;
+    top: 40%;
+    left: 0;
+    margin: 24px auto;
+    width: 75%;
+    display: block;    
+    color: #ffffff;
+    transition: 0.30s all ease-in-out;
+    -moz-transition: 0.30s all ease-in-out;
+    -webkit-transition: 0.30s all ease-in-out;        
+    opacity: 0.9;
+}
+.grid_circles2#pc_our_team .pc_team_member .pc_team_member_name,
+.grid_circles2#pc_our_team .pc_team_member .pc_team_member_jobtitle{
+    display: none;
+    transition: 0.40s all ease-in-out;
+    -moz-transition: 0.40s all ease-in-out;
+    -webkit-transition: 0.40s all ease-in-out;    
+    z-index: 99;
+}
+#pc_our_team .pc_team_member_inner{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.grid#pc_our_team .pc_team_member_inner{
+    height: 170px;
+    overflow: hidden;
+    background-size: cover;     
+    position: relative;
+    text-align: center;
+    background: #404040;
+}
+.grid#pc_our_team .pc_team_member .pc_team_member_overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    padding: 0 10px;
+    color: #fff;
+    background: rgba(50,50,50,0.5);
+    display: none;
+}
+.grid#pc_our_team .pc_team_member .pc_team_more,
+.grid_circles#pc_our_team .pc_team_member .pc_team_more,
+.grid_circles2#pc_our_team .pc_team_member .pc_team_more{
+    position: absolute;
+    margin-top: -25px;
+    width: 100%;
+    transition: 0.45s all ease-in-out;
+    -moz-transition: 0.45s all ease-in-out;
+    -webkit-transition: 0.45s all ease-in-out;
+    top: -25px;
+}
+.grid#pc_our_team .pc_team_member .pc_team_more.show,
+.grid_circles#pc_our_team .pc_team_member .pc_team_more.show,
+.grid_circles2#pc_our_team .pc_team_member .pc_team_more.show{
+    top: 50%;
+    transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+}
+.grid#pc_our_team .pc_team_member .pc_team_member_name a,
+.grid_circles#pc_our_team .pc_team_member .pc_team_member_name a,
+.grid_circles2#pc_our_team .pc_team_member .pc_team_member_name a{
+    color: #fff;
+}
+
+
+
+.pc_team_single_member{
+    overflow: hidden;
+
+}
+
+.pc_team_single_member .pc_single_side .social{
+    margin: 10px 0 0 0;
+}
+.pc_team_single_member .pc_single_side .social li{
+    margin-bottom: 10px;
+    list-style: none;
+}
+.pc_team_single_member .pc_single_side .social li a{
+    text-decoration: none;
+}
+.pc_team_single_member .pc_single_side .social .pc-social{
+    width: 25px;
+    position: relative;
+    top: 7px;
+    padding-right: 5px;
+
+}
+.pc_team_single_member .pc_single_side .name{
+    font-size: 22px;
+    margin-top: 12px;
+    margin-bottom: 7px;
+    text-align: center;
+    border-bottom: 1px solid #e1e1e1;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    color: #333;
+    font-weight: 400;
+}
+.pc_team_single_member .pc_single_side .title{
+    text-align: center;
+    font-weight: 400;
+
+}
+.pc_team_single_member .circle .wp-post-image{
+    border-radius: 100%;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    text-align: center;
+    display: block;    
+}
+.pc_team_single_skills{
+
+}
+.progress {
+    height: 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    background-color: rgb(245, 245, 245);
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+.progress-bar {
+    float: left;
+    width: 0;
+    height: 100%;
+    font-size: 12px;
+    line-height: 20px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    background-color: rgb(51, 122, 183);
+    -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+    -webkit-transition: width .6s ease;
+    -o-transition: width .6s ease;
+    transition: width .6s ease;
+}
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+.pc_team_single_member .inner{
+    background: rgba(150,150,150,0.2);
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+/**
+* Circles CSS
+**/
+.grid_circles#pc_our_team .pc_team_member,
+.grid_circles2#pc_our_team .pc_team_member{
+    float: left;
+
+    overflow: hidden;
+    border-radius: 100%;
+    text-align: center;
+    box-shadow:
+        0 0 0 4px #fff,
+        0 0 0 7px #E2E2E2;
+    position: relative;
+
+}
+.grid_circles#pc_our_team .pc_team_member:hover .wp-post-image{
+
+}
+.grid_circles#pc_our_team .pc_team_member .wp-post-image,
+.grid_circles2#pc_our_team .pc_team_member .wp-post-image{
+    border: none;
+    padding: 0;
+    float: none;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+
+
+}
+.grid_circles#pc_our_team .pc_team_member .pc_team_member_overlay,
+.grid_circles2#pc_our_team .pc_team_member .pc_team_member_overlay{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: rgba(50,50,50,0.7);
+    color: #ffffff;
+    display: none;
+    border-radius: 100%;
+}
+.grid_circles#pc_our_team .pc_team_member .pc_team_member_overlay .pc_team_member_name,
+.grid_circles2#pc_our_team .pc_team_member .pc_team_member_overlay .pc_team_member_name{
+    margin-top: 30px;
+    font-size: 18px;
+}
+.grid_circles#pc_our_team .pc_team_member .pc_team_member_overlay .icons a,
+.grid_circles2#pc_our_team .pc_team_member .pc_team_member_overlay .icons a{
+    margin-right: 5px;
+}
+.grid_circles#pc_our_team .icons img,
+.grid_circles2#pc_our_team .icons img{
+    width: 25px;
+}
+/**
+* Stacked css
+**/
+.stacked#pc_our_team .pc_team_member{
+    width: 100%;
+    overflow: hidden;
+    border-bottom: 2px solid #333;
+    padding-top: 15px;
+    margin-bottom: 15px;
+    clear: both;
+}
+
+.stacked#pc_our_team .pc_team_member .pc_team_member_left{
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+.stacked#pc_our_team .pc_team_member .pc_team_member_right{
+    float: right;
+    width: 70%;
+}
+.stacked#pc_our_team .pc_team_member .wp-post-image{
+    width: 100%;
+}
+.stacked#pc_our_team .pc_team_member .pc_team_member_name{
+
+    margin: 10px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #404040;    
+}
+.stacked#pc_our_team .pc_team_member .pc_team_member_jobtitle{
+    line-height: 20px;
+    margin: 10px 0;
+    text-align: center;
+}
+.stacked#pc_our_team .pc_team_member .pc_team_member_name a{
+    text-decoration: none;
+    font-size: 26px;
+}
+
+.stacked#pc_our_team .pc_team_member .pc_team_skills{
+    display: none;
+}
+.stacked#pc_our_team .pc_team_member .icons{
+
+}
+.stacked#pc_our_team .icons img{
+    width: 30px;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    margin-right: 10px;
+    transition: 0.3s all ease-in-out;
+    -moz-transition: 0.3s all ease-in-out;
+    -webkit-transition: 0.3s all ease-in-out;
+}
+.stacked#pc_our_team .icons img:hover{
+    /*    transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);*/
+}
+/**
+* Carousel
+**/
+.carousel#pc_our_team .pc_team_member{
+    padding: 10px;
+    position: relative;
+}
+.carousel#pc_our_team .pc_team_member .wp-post-image{
+    float: none;
+}
+.carousel#pc_our_team .pc_team_member .pc_team_member_name,
+.carousel#pc_our_team .pc_team_member .pc_team_member_jobtitle {
+    text-align: center;
+    padding: 15px 0 0 0;
+    font-weight: 600;
+}
+.carousel#pc_our_team .pc_team_member .pc_team_member_jobtitle{
+    padding: 5px 0 15px 0;
+    font-weight: 400;
+}
+
+
+/**
+* widget css
+*/
+.widget#pc_our_team .pc_sidebar_team_member{
+    width: 100%;
+    overflow: hidden;
+    margin: 0 0 10px 0;
+}
+.widget#pc_our_team .pc_sidebar_team_member .wp-post-image{
+    float: left;
+    width: 25%;
+    border: 1px solid #d0d0d0;
+    padding: 3px;
+    box-sizing: border-box;
+    margin: 0;
+}
+.widget#pc_our_team .pc_sidebar_team_member .pc_team_member_overlay{
+    float: left;
+    width: 75%;
+    padding: 0 0 0 10px;
+    box-sizing: border-box;
+}
+
+.widget#pc_our_team .pc_sidebar_team_member .pc_team_member_overlay .pc_team_member_name{
+    font-weight: bold;
+}
+
+/**
+* honeycomb
+**/
+.honeycombs{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    text-align: center;
+}
+
+.honeycombs .inner_span{
+    display: block;
+    height: 100%;
+    width: 100%;
+    font-family: sans-serif;
+    color: #000;
+    opacity: 0.8;
+}
+.honeycombs .inner-text{
+    padding-top: 35%;
+    font-size: 18px;
+}
+.honeycombs .inner-text a{
+    text-decoration: none;
+}
+.honeycombs .honeycombs-inner-wrapper{
+    display: inline-block;
+    overflow: hidden;
+    width: 700px;
+    position: relative;
+    height: 1200px;
+}
+
+.honeycombs .comb{
+    position: absolute;
+    display: inline-block;
+}
+
+.honeycombs .hex_l,
+.honeycombs .hex_r{
+    overflow: hidden;
+    position: absolute;
+    /* -webkit-backface-visibility: hidden; */
+}
+
+.honeycombs .hex_l{
+    visibility: hidden;
+    -moz-transform: rotate(60deg);
+    -ms-transform: rotate(60deg);
+    -o-transform: rotate(60deg);
+    -webkit-transform: rotate(60deg);
+    transform: rotate(60deg);
+}
+
+.honeycombs .hex_r{
+    visibility: hidden;
+    -moz-transform: rotate(-120deg);
+    -ms-transform: rotate(-120deg);
+    -o-transform: rotate(-120deg);
+    -webkit-transform: rotate(-120deg);
+    transform: rotate(-120deg);
+}
+
+.honeycombs .hex_inner{
+    display: block;
+    visibility: visible;
+    -moz-transform: rotate(60deg);
+    -ms-transform: rotate(60deg);
+    -o-transform: rotate(60deg);
+    -webkit-transform: rotate(60deg);
+    transform: rotate(60deg);
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.width25,
+.width50,
+.width75{
+    width: 100%;
+    padding: 20px;
+}
+
+
+
+/**
+* Brick Css
+*
+*/
+
+.brick {
+    background: url('../img/brick_pattern.png') 0 40px;
+}
+.group {
+    zoom: 1;
+}
+div.team_bio {
+    overflow: hidden;
+}
+.center {
+    width: 100%;
+    padding: 13px 48px;
+    float: left;
+}
+div.team_bio div.view {
+    display: block;
+    float: left;
+    width: 55%;
+    margin-left: -50px;
+    position: relative;
+}
+.team_single_detail{
+    width: 45%;
+    float: left;
+}
+.team_bio img {
+    display: block;
+    position: relative;
+    margin: 0 auto 60px;
+    max-width: 100%;
+}
+div.team_bio div.view.steve a.twitter, div.team_bio div.view.steve a.instagram, div.team_bio div.view.steve a.linkedin {
+    top: -19px;
+    left: 280px;
+}
+div.team_bio h4 {
+    margin-top: 15px;
+    font-size: 18px;
+    color: #a8a1a5;
+    font-family: "proxima_nova_light", 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+div.team_bio p {
+    margin-top: 20px;
+}
+div.team_bio a.twitter, div.team_bio a.instagram, 
+div.team_bio a.linkedin, div.team_bio a.googleplus, 
+div.team_bio a.facebook, div.team_bio a.steam, 
+div.team_bio a.email {
+    background-image: url('../img/team_social_sprite.png');
+    background-position: 0 0;
+    background-size: 41px auto;
+    z-index: 10;
+    display: block;
+    width: 41px;
+    height: 41px;
+}
+div.team_bio a.facebook{
+    background-image: url('../img/fb-deal.png');
+    background-position: 0px 1px;
+    background-size: 41px auto;
+    z-index: 10;
+    display: block;
+    width: 41px;
+    height: 41px;
+}
+div.team_bio a.facebook:hover{
+    background-image: url('../img/fb-circ.png');
+    background-position: -44px -9px;
+    background-size: 131px 60px;
+    z-index: 10;
+    display: block;
+    width: 41px;
+    height: 41px;
+}
+div.team_bio a.twitter{
+    background-position: 0 287px;
+}
+div.team_bio a.twitter:hover{
+    background-position: 0 205px;
+}
+div.team_bio a.instagram{
+    background-position: 0 574px;
+}
+div.team_bio a.linkedin{
+    background-position: 0 410px;
+}
+div.team_bio a.linkedin:hover{
+    background-position: 0 328px;
+}
+div.team_bio a.email{
+    background-position: 0 82px;
+}
+div.team_bio a.email:hover{
+    background-position: 0 41px;
+}
+div.team_bio a.googleplus:hover{
+    background-position: 0px -82px;
+}
+.grey {
+    background: rgba(217,217,217,0.1);
+}
+div.divider.grey {
+    -webkit-box-shadow: inset 0 0 2px 1px rgba(0,0,0,0.08), inset 0 0 2px 1px rgba(0,0,0,0.08);
+    -moz-box-shadow: inset 0 0 2px 1px rgba(0,0,0,0.08), inset 0 0 2px 1px rgba(0,0,0,0.08);
+    box-shadow: inset 0 0 2px 1px rgba(0,0,0,0.08), inset 0 0 2px 1px rgba(0,0,0,0.08);
+}
+div.team_bio.divider {
+    margin-top: 0px !important;
+    padding-top: 0px;
+}
+div.team_bio.right div.view {
+    float: right;
+    margin: 0px 0 0 1px;
+    margin-right: -50px;
+    padding-bottom: 1px;
+}
+.social_icons,.pc_team_skills{
+    width: 100%;
+    float: left;
+}
+.social_icons a{
+    float: left;
+}
+
+
+/**
+* Pager Css
+*
+*/
+.pc_gri2{
+    width: 100%;
+    float: left;
+}
+.pc_left_column,.pc_right_column{
+    width: 48%;
+    float: left;
+}
+
+.team-list .team-item {
+    padding: 0;
+    text-align: left;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 2px solid #e9003c;
+    width: 33.33333%;
+    float: left;
+}
+.team-list  .pc_member_image{
+    width: 100%;
+    height: 190px;
+}
+.team-list .team-item img {
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+}
+.team-list .team-item .team-desc {
+    position: absolute;
+    width: 100%;
+    background: rgba(233, 0, 60, 0.7);
+    padding: 0.5rem 1rem;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transition: -webkit-transform 0.8s;
+    transition: transform 0.8s; 
+}
+.team-list .team-item .team-desc h3 {
+    color: #fff;
+    font-size: 20px;
+    text-transform: uppercase;
+    margin: 0; 
+}
+.team-list .team-item .team-desc p {
+    color: #fff;
+    font-size: 16px;
+    margin: 0; 
+}
+.team-list .team-item:hover .team-desc {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, -54px, 0);
+    -webkit-transition: -webkit-transform 0.8s;
+    transition: transform 0.8s; 
+}
+.team-list .team-item.current .team-desc {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, -54px, 0); 
+}
+.team-item-holder {
+    height: 37.5rem;
+}
+.team-content {
+    width: 100%;
+    margin: 0 auto;
+    float: left;
+    padding-left: 66px;
+    opacity: 0;
+    display: none;
+}
+.team-content img {
+    margin-bottom: 1rem;
+    -webkit-transform: translate3d(0, -55px, 0);
+    transform: translate3d(0, -55px, 0);
+    -webkit-transition: -webkit-transform 0.8s;
+    transition: transform 0.8s; 
+}
+.team-content .team-content-text {
+    opacity: 0;
+    -webkit-transition: opacity 0.8s;
+    transition: opacity 0.8s; }
+.team-content .team-content-text p {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    text-align: left;
+    color: #636363; 
+}
+.team-content.current {
+    opacity: 1; 
+}
+.team-content.current img {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0px, 0);
+    -webkit-transition: -webkit-transform 0.8s;
+    transition: transform 0.8s; 
+}
+.team-content.current .team-content-text {
+    opacity: 1;
+    -webkit-transition: opacity 0.8s;
+    transition: opacity 0.8s; 
+}
+@media (min-width: 992px) and (max-width: 1198px){
+    .team-list  .pc_member_image{
+        height: 133px;
+    }
+    .team-list .team-item .team-desc h3{
+        font-size: 12px !important;
+    }
+    .team-list .team-item .team-desc p{
+        font-size: 11px !important;
+    }
+    .team-list .team-item.current .team-desc {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, -38px, 0);
+    }
+    .team-list .team-item:hover .team-desc{
+        transform: translate3d(0, -38px, 0);
+    }
+}
+@media (max-width: 991px){
+    .team-list  .pc_member_image{
+        height: 100px;
+    }
+    .team-list .team-item .team-desc h3{
+        font-size: 12px !important;
+    }
+    .team-list .team-item.current .team-desc {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, -38px, 0);
+    }
+    .team-list .team-item:hover .team-desc{
+        transform: translate3d(0, -38px, 0);
+    }
+}
+
+
+
+/**
+* Round About Css
+*/
+.wapper_our_team {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+#content_our_team {
+    list-style: none;
+}
+#content_our_team {
+    width: 500px;
+    margin: 0 auto;
+    height: 590px;
+    z-index: 9;
+}
+.roundabout-in-focus .our_team-image img {
+    opacity: 1;
+}
+.roundabout-moveable-item .content_team {
+    background: #fff;
+    padding: 0 15px 15px;
+    text-align: center;
+}
+.out_team_title {
+    position: relative;
+    padding-bottom: 35px;
+}
+.out_team_title:before {
+    width: 26px;
+    height: 3px;
+    background: #eee;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    bottom: 17px;
+    left: 50%;
+    margin-left: -13px;
+}
+.out_team_title h4 {
+    display: inline-block;
+    margin-top: 30px;
+    color: #3f3f3f;
+    font-size: 18px;
+    font-weight: 600;
+    font-style: normal;
+    text-transform: none;
+}
+.roundabout-moveable-item .content_team {
+    background: #fff;
+    padding: 0 15px 15px;
+    text-align: center;
+}
+.wapper_our_team .hidden_child {
+    display: none;
+}
+.roundabout-in-focus .hidden_child {
+    display: block;
+}
+.social_team {
+    margin: 5px 0;
+    padding-left: 0px;
+}
+.social_team li {
+    display: inline-block;
+    list-style: none;
+    margin: 2px;
+}
+.social_team li a {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    background: #ebe9e9;
+    line-height: 40px;
+    color: #888;
+}
+.nav_team {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+.next_team, .prev_team {
+    width: 92px;
+    height: 92px;
+    border: 2px solid #393939;
+    border-radius: 50%;
+    padding: 3px;
+    z-index: 2;
+    position: relative;
+    display: inline-block;
+}
+.nav_team .next_team{
+    float: right;
+}
+.nav_team .next_team:before, .nav_team .prev_team:before {
+    content: "";
+    height: 2px;
+    position: absolute;
+    background: #393939;
+    top: 50%;
+    width: 85px;
+}
+.next_team .inner_icon, .prev_team .inner_icon {
+    border: 2px solid #909090;
+    width: 82px;
+    height: 82px;
+    display: table;
+    border-radius: 50%;
+    text-align: center;
+}
+.next_team .inner_icon .icon, .prev_team .inner_icon .icon {
+    display: table-cell;
+    height: 78px;
+    vertical-align: middle;
+    font-size: 32px;
+    color: #fff;
+}
+.nav_team .next_team:before {
+    left: -85px;
+}
+.nav_team .prev_team:before {
+    right: -85px;
+}
+
+/**
+* single post
+*/
+.pearlcore_team_single_icons img.pc-social{
+    width: 25px;
+    margin-right: 10px;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+
+/* 
+ * 	Core Owl Carousel CSS File
+ *	v1.3.3
+ */
+
+/* clearfix */
+.owl-carousel .owl-wrapper:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+/* display none until init */
+.owl-carousel{
+    display: none;
+    position: relative;
+    width: 100%;
+    -ms-touch-action: pan-y;
+}
+.owl-carousel .owl-wrapper{
+    display: none;
+    position: relative;
+    -webkit-transform: translate3d(0px, 0px, 0px);
+}
+.owl-carousel .owl-wrapper-outer{
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+.owl-carousel .owl-wrapper-outer.autoHeight{
+    -webkit-transition: height 500ms ease-in-out;
+    -moz-transition: height 500ms ease-in-out;
+    -ms-transition: height 500ms ease-in-out;
+    -o-transition: height 500ms ease-in-out;
+    transition: height 500ms ease-in-out;
+}
+
+.owl-carousel .owl-item{
+    float: left;
+}
+.owl-controls .owl-page,
+.owl-controls .owl-buttons div{
+    cursor: pointer;
+}
+.owl-controls {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* mouse grab icon */
+.grabbing { 
+    cursor:url(../img/grabbing.png) 8 8, move;
+}
+
+/* fix */
+.owl-carousel  .owl-wrapper,
+.owl-carousel  .owl-item{
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility:    hidden;
+    -ms-backface-visibility:     hidden;
+    -webkit-transform: translate3d(0,0,0);
+    -moz-transform: translate3d(0,0,0);
+    -ms-transform: translate3d(0,0,0);
+}
+
+/*
+* 	Owl Carousel Owl Demo Theme 
+*	v1.3.3
+*/
+
+.owl-theme .owl-controls{
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Styling Next and Prev buttons */
+
+.owl-theme .owl-controls .owl-buttons div{
+    color: #FFF;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;/*IE7 life-saver */
+    margin: 5px;
+    padding: 3px 10px;
+    font-size: 12px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    background: #869791;
+    filter: Alpha(Opacity=50);/*IE7 fix*/
+    opacity: 0.5;
+}
+/* Clickable class fix problem with hover on touch devices */
+/* Use it for non-touch hover action */
+.owl-theme .owl-controls.clickable .owl-buttons div:hover{
+    filter: Alpha(Opacity=100);/*IE7 fix*/
+    opacity: 1;
+    text-decoration: none;
+}
+
+/* Styling Pagination*/
+
+.owl-theme .owl-controls .owl-page{
+    display: inline-block;
+    zoom: 1;
+    *display: inline;/*IE7 life-saver */
+}
+.owl-theme .owl-controls .owl-page span{
+    display: block;
+    width: 12px;
+    height: 12px;
+    margin: 5px 7px;
+    filter: Alpha(Opacity=50);/*IE7 fix*/
+    opacity: 0.5;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    background: #869791;
+}
+
+.owl-theme .owl-controls .owl-page.active span,
+.owl-theme .owl-controls.clickable .owl-page:hover span{
+    filter: Alpha(Opacity=100);/*IE7 fix*/
+    opacity: 1;
+}
+
+/* If PaginationNumbers is true */
+
+.owl-theme .owl-controls .owl-page span.owl-numbers{
+    height: auto;
+    width: auto;
+    color: #FFF;
+    padding: 2px 10px;
+    font-size: 12px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+}
+
+/* preloading images */
+.owl-item.loading{
+    min-height: 150px;
+    background: url(AjaxLoader.gif) no-repeat center center
+}
+
+/* 
+ *  Owl Carousel CSS3 Transitions 
+ *  v1.3.2
+ */
+
+.owl-origin {
+    -webkit-perspective: 1200px;
+    -webkit-perspective-origin-x : 50%;
+    -webkit-perspective-origin-y : 50%;
+    -moz-perspective : 1200px;
+    -moz-perspective-origin-x : 50%;
+    -moz-perspective-origin-y : 50%;
+    perspective : 1200px;
+}
+/* fade */
+.owl-fade-out {
+    z-index: 10;
+    -webkit-animation: fadeOut .7s both ease;
+    -moz-animation: fadeOut .7s both ease;
+    animation: fadeOut .7s both ease;
+}
+.owl-fade-in {
+    -webkit-animation: fadeIn .7s both ease;
+    -moz-animation: fadeIn .7s both ease;
+    animation: fadeIn .7s both ease;
+}
+/* backSlide */
+.owl-backSlide-out {
+    -webkit-animation: backSlideOut 1s both ease;
+    -moz-animation: backSlideOut 1s both ease;
+    animation: backSlideOut 1s both ease;
+}
+.owl-backSlide-in {
+    -webkit-animation: backSlideIn 1s both ease;
+    -moz-animation: backSlideIn 1s both ease;
+    animation: backSlideIn 1s both ease;
+}
+/* goDown */
+.owl-goDown-out {
+    -webkit-animation: scaleToFade .7s ease both;
+    -moz-animation: scaleToFade .7s ease both;
+    animation: scaleToFade .7s ease both;
+}
+.owl-goDown-in {
+    -webkit-animation: goDown .6s ease both;
+    -moz-animation: goDown .6s ease both;
+    animation: goDown .6s ease both;
+}
+/* scaleUp */
+.owl-fadeUp-in {
+    -webkit-animation: scaleUpFrom .5s ease both;
+    -moz-animation: scaleUpFrom .5s ease both;
+    animation: scaleUpFrom .5s ease both;
+}
+
+.owl-fadeUp-out {
+    -webkit-animation: scaleUpTo .5s ease both;
+    -moz-animation: scaleUpTo .5s ease both;
+    animation: scaleUpTo .5s ease both;
+}
+/* Keyframes */
+/*empty*/
+@-webkit-keyframes empty {
+    0% {opacity: 1}
+}
+@-moz-keyframes empty {
+    0% {opacity: 1}
+}
+@keyframes empty {
+    0% {opacity: 1}
+}
+@-webkit-keyframes fadeIn {
+    0% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes fadeIn {
+    0% { opacity:0; }
+    100% { opacity:1; }
+}
+@keyframes fadeIn {
+    0% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes fadeOut {
+    0% { opacity:1; }
+    100% { opacity:0; }
+}
+@-moz-keyframes fadeOut {
+    0% { opacity:1; }
+    100% { opacity:0; }
+}
+@keyframes fadeOut {
+    0% { opacity:1; }
+    100% { opacity:0; }
+}
+@-webkit-keyframes backSlideOut {
+    25% { opacity: .5; -webkit-transform: translateZ(-500px); }
+    75% { opacity: .5; -webkit-transform: translateZ(-500px) translateX(-200%); }
+    100% { opacity: .5; -webkit-transform: translateZ(-500px) translateX(-200%); }
+}
+@-moz-keyframes backSlideOut {
+    25% { opacity: .5; -moz-transform: translateZ(-500px); }
+    75% { opacity: .5; -moz-transform: translateZ(-500px) translateX(-200%); }
+    100% { opacity: .5; -moz-transform: translateZ(-500px) translateX(-200%); }
+}
+@keyframes backSlideOut {
+    25% { opacity: .5; transform: translateZ(-500px); }
+    75% { opacity: .5; transform: translateZ(-500px) translateX(-200%); }
+    100% { opacity: .5; transform: translateZ(-500px) translateX(-200%); }
+}
+@-webkit-keyframes backSlideIn {
+    0%, 25% { opacity: .5; -webkit-transform: translateZ(-500px) translateX(200%); }
+    75% { opacity: .5; -webkit-transform: translateZ(-500px); }
+    100% { opacity: 1; -webkit-transform: translateZ(0) translateX(0); }
+}
+@-moz-keyframes backSlideIn {
+    0%, 25% { opacity: .5; -moz-transform: translateZ(-500px) translateX(200%); }
+    75% { opacity: .5; -moz-transform: translateZ(-500px); }
+    100% { opacity: 1; -moz-transform: translateZ(0) translateX(0); }
+}
+@keyframes backSlideIn {
+    0%, 25% { opacity: .5; transform: translateZ(-500px) translateX(200%); }
+    75% { opacity: .5; transform: translateZ(-500px); }
+    100% { opacity: 1; transform: translateZ(0) translateX(0); }
+}
+@-webkit-keyframes scaleToFade {
+    to { opacity: 0; -webkit-transform: scale(.8); }
+}
+@-moz-keyframes scaleToFade {
+    to { opacity: 0; -moz-transform: scale(.8); }
+}
+@keyframes scaleToFade {
+    to { opacity: 0; transform: scale(.8); }
+}
+@-webkit-keyframes goDown {
+    from { -webkit-transform: translateY(-100%); }
+}
+@-moz-keyframes goDown {
+    from { -moz-transform: translateY(-100%); }
+}
+@keyframes goDown {
+    from { transform: translateY(-100%); }
+}
+
+@-webkit-keyframes scaleUpFrom {
+    from { opacity: 0; -webkit-transform: scale(1.5); }
+}
+@-moz-keyframes scaleUpFrom {
+    from { opacity: 0; -moz-transform: scale(1.5); }
+}
+@keyframes scaleUpFrom {
+    from { opacity: 0; transform: scale(1.5); }
+}
+
+@-webkit-keyframes scaleUpTo {
+    to { opacity: 0; -webkit-transform: scale(1.5); }
+}
+@-moz-keyframes scaleUpTo {
+    to { opacity: 0; -moz-transform: scale(1.5); }
+}
+@keyframes scaleUpTo {
+    to { opacity: 0; transform: scale(1.5); }
+}
+@media (min-width: 768px){
+    #pc_our_team_lightbox .pc_our_team_lightbox{
+        padding: 15px 0;
+        margin: 0 auto;
+        width: 750px;
+        min-height: 250px;
+        margin-top: 50px;
+        max-height: 80%;
+        overflow-y: auto;        
+    }
+
+    #pc_our_team_lightbox .pc_our_team_lightbox .name,
+    #pc_our_team_lightbox .pc_our_team_lightbox .skills-title{
+        font-size: 26px;
+    }
+
+    #pc_our_team_lightbox .pc_our_team_lightbox .sc-content{
+        font-size: 15px;
+        line-height: 18px;
+    }
+    #pc_our_team_lightbox .pc_our_team_lightbox .title{
+        font-size: 20px;
+        margin-top: 15px;
+    }
+
+    .pc_team_single_member .pc_single_side .title{
+        font-size: 17px;
+    }
+    .grid#pc_our_team .pc_team_member{
+        float: left;
+        width: 25%;
+    }
+    #pc_our_team.sc-col3 .pc_team_member{
+        width: 33.3%;
+        /*margin: 1%;*/
+    }
+    #pc_our_team.sc-col4 .pc_team_member{
+        width: 25%;
+        /*margin: 1%;*/
+    }
+    #pc_our_team.sc-col2 .pc_team_member{
+        width: 50%;
+        /*margin: 1%;*/
+    }
+    #pc_our_team.sc-col5 .pc_team_member{
+        width: 20%;
+    }
+    #pc_our_team.sc-col10 .pc_team_member{
+        width: 10%;
+    }
+
+
+    #pc_our_team.grid_circles.sc-col3 .pc_team_member,
+    #pc_our_team.grid_circles2.sc-col3 .pc_team_member{
+        width: 31%;
+        margin: 1%;
+    }
+    #pc_our_team.grid_circles.sc-col4 .pc_team_member,
+    #pc_our_team.grid_circles2.sc-col4 .pc_team_member{
+        width: 23%;
+        margin: 1%;
+    }
+    #pc_our_team.grid_circles.sc-col2 .pc_team_member,
+    #pc_our_team.grid_circles2.sc-col2 .pc_team_member{
+        width: 48%;
+        margin: 1%;
+    }
+    #pc_our_team.sc-col5 .pc_team_member{
+        width: 17%;
+        margin: 1%;
+    }
+    #pc_our_team.sc-col10 .pc_team_member{
+        width: 10%;
+    }
+    #pc_our_team .pc_team_member img.wp-post-image{
+
+    }
+    #pc_our_team .pc_team_member_inner{
+
+    }
+
+    .pc_team_single_member .pc_single_side{
+        float: left;
+        width: 25%;
+
+        box-sizing: border-box;
+
+    }
+    .pc_team_single_member .pc_single_main{
+        float: left;
+        width: 71%;
+        margin-left: 2%;
+        padding: 15px;
+        box-sizing: border-box;
+        background: rgba(150,150,150,0.2);
+    }
+    .pc_team_single_member .pc_single_main.sc-skills{
+        width: 46%;
+        margin-right: 2%;
+    }
+    .pc_team_single_member .pc_team_single_skills{
+        width: 25%;
+        float: left;
+
+    }
+    .pc_team_single_member .wp-post-image{
+        width: 100%;
+    }
+
+    .width25{
+        width: 24%;
+        padding: 0 15px;
+    }
+    .width50{
+        width: 49%;
+        padding: 0 15px;        
+    }
+    .width75{
+        width: 73%;
+        padding: 0 15px;        
+    }
+
+
+}
+
+@media (min-width: 481px) and (max-width: 767px){
+    .grid#pc_our_team .pc_team_member{
+        float: left;
+        width: 33.33%;
+    }
+}
+@media (max-width: 480px){
+    .grid#pc_our_team .pc_team_member{
+        float: left;
+        width: 50%;
+    }
+}
+@media( max-width : 767px ) {
+    #pc_our_team_lightbox .pc_our_team_lightbox{
+        overflow-y: auto;
+        max-height: 80%;
+    }
+    #pc_our_team_lightbox .pc_our_team_lightbox .image{
+        width: 50%;
+    }
+
+    #pc_our_team_lightbox .pc_our_team_lightbox .name,
+    #pc_our_team_lightbox .pc_our_team_lightbox .skills-title{
+        font-size: 26px;
+    }
+
+    #pc_our_team_lightbox .pc_our_team_lightbox .sc-content{
+        font-size: 15px;
+        line-height: 18px;
+    }
+    #pc_our_team_lightbox .pc_our_team_lightbox .title{
+        font-size: 20px;
+        margin-top: 15px;
+    }    
+    #pc_our_team.grid_circles.sc-col4 .pc_team_member,
+    #pc_our_team.grid_circles2.sc-col4 .pc_team_member,
+    #pc_our_team.grid_circles.sc-col3 .pc_team_member,
+    #pc_our_team.grid_circles2.sc-col3 .pc_team_member,
+    #pc_our_team.grid_circles.sc-col2 .pc_team_member,
+    #pc_our_team.grid_circles2.sc-col2 .pc_team_member,
+    #pc_our_team.grid_circles.sc-col5 .pc_team_member,
+    #pc_our_team.grid_circles2.sc-col5 .pc_team_member,
+    #pc_our_team.grid.sc-col4 .pc_team_member,
+    #pc_our_team.grid.sc-col4 .pc_team_member,
+    #pc_our_team.grid.sc-col3 .pc_team_member,
+    #pc_our_team.grid.sc-col3 .pc_team_member,
+    #pc_our_team.grid.sc-col2 .pc_team_member,
+    #pc_our_team.grid.sc-col2 .pc_team_member,
+    #pc_our_team.grid.sc-col5 .pc_team_member,
+    #pc_our_team.grid.sc-col5 .pc_team_member{
+        width: 44%;
+        margin-right: 5%;
+        margin-bottom: 5%;
+    }
+
+    .stacked#pc_our_team .pc_team_member .pc_team_member_name a{
+        text-decoration: none;
+        font-size: 18px;
+    }        
+    .stacked#pc_our_team .pc_team_member .pc_team_member_jobtitle{
+        font-size: 16px;
+    }
+
+}
