@@ -18,10 +18,12 @@
     z-index: 1000;
     background: rgba(0,0,0,0.75);
     display: none;
-    z-index: 9999;
 }
 .pc_team_single_popup{
     cursor: pointer;
+}
+.pc_our_team_lightbox{
+    z-index: 1001;
 }
 #pc_our_team_lightbox .pc_our_team_loghtbox_close{
     width: 100%;
@@ -197,16 +199,15 @@
 }
 .grid#pc_our_team .pc_team_member:hover .wp-post-image{
 
-
 }
 
 
-.grid#pc_our_team .pc_team_member .wp-post-image{
+.grid#pc_our_team .pc_team_member .wp-post-image, #pc_our_team_masonry .wp-post-image{
     transition: 0.45s all ease-in-out;
     -moz-transition: 0.45s all ease-in-out;
     -webkit-transition: 0.45s all ease-in-out;
 }
-.grid#pc_our_team .pc_team_member .wp-post-image.zoomIn{
+.grid#pc_our_team .pc_team_member .wp-post-image.zoomIn, #pc_our_team_masonry .wp-post-image.zoomIn{
     transform: scale(1.1);
     -moz-transform: scale(1.1);
     -webkit-transform: scale(1.1);
@@ -214,7 +215,7 @@
 .grid#pc_our_team .pc_team_member .icons{
     z-index: 9;
     position: absolute;
-    bottom: -25px;
+    bottom: -35px;
     display: block;
     width: 100%;
     text-align: center;
@@ -284,6 +285,7 @@
 .grid_circles2#pc_our_team .pc_team_member .icons img{
     width: 25px;
     margin-right: 5px;
+    margin-bottom: 0;
 
 }
 .grid#pc_our_team .pc_team_member .pc_team_member_jobtitle,
@@ -1046,6 +1048,7 @@ div.team_bio.right div.view {
     -o-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out;
     display: none;
+    z-index: 5;
 }
 
 #pc_our_team_masonry li {
@@ -1053,6 +1056,7 @@ div.team_bio.right div.view {
     margin: 0px !important;
     list-style: none !important;
     display: none;
+    z-index: 6;
 }
 
 .dvteamgrid figure {
@@ -1060,6 +1064,7 @@ div.team_bio.right div.view {
     position: relative;
     padding: 0px !important;
     margin: 0px !important;
+    z-index: 7;
 }
 .dvteamgrid figure a {
     position: relative;
@@ -1224,6 +1229,9 @@ div.team_bio.right div.view {
 .social_team {
     margin: 5px 0;
     padding-left: 0px;
+}
+.social_team a img{
+    display: inline-block;
 }
 .social_team li {
     display: inline-block;

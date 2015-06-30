@@ -108,9 +108,9 @@ jQuery(document).ready(function ($) {
     /**
      * Masonry Js
      */
-    jQuery("body").find(".dvteamgrid").show();
-    jQuery('#pc_our_team_masonry').imagesLoaded(function () {
-        if (jQuery(window).width() > 1024) {
+    $("body").find(".dvteamgrid").show();
+    $('#pc_our_team_masonry').imagesLoaded(function () {
+        if ($(window).width() > 1024) {
             var gridwidth = '50%';
         } else {
             var gridwidth = '100%';
@@ -121,14 +121,14 @@ jQuery(document).ready(function ($) {
             align: 'left',
             direction: 'left',
             container: jQuery('#pc_our_team_masonry'),
-            offset: 20,
+            offset: 1,
             outerOffset: 0,
             fillEmptySpace: false,
             flexibleWidth: gridwidth
         };
-        var handler = jQuery('#pc_our_team_masonry li');
-        jQuery(window).resize(function () {
-            var windowWidth = jQuery(window).width(),
+        var handler = $('#pc_our_team_masonry li');
+        $(window).resize(function () {
+            var windowWidth = $(window).width(),
                     newOptions = {
                         flexibleWidth: '50%'
                     };
@@ -140,24 +140,28 @@ jQuery(document).ready(function ($) {
         handler.wookmark(options);
     });
     /* REMOVE HOVER EFFECT ON TOUCH DEVICES */
-    jQuery(document).ready(function () {
+    $(document).ready(function () {
         if ("ontouchstart" in document.documentElement) {
-            jQuery('.dv-member-name').addClass('rmveffect');
-            jQuery('.dv-member-info').addClass('rmveffect');
-            jQuery('.dv-member-desc').addClass('rmveffect');
-            jQuery('img').addClass('rmveffect');
-            jQuery('.dv-member-zoom').addClass('rmveffect');
+            $('.dv-member-name').addClass('rmveffect');
+            $('.dv-member-info').addClass('rmveffect');
+            $('.dv-member-desc').addClass('rmveffect');
+            $('img').addClass('rmveffect');
+            $('.dv-member-zoom').addClass('rmveffect');
         } else {
             /* CUSTOM ZOOM ANIMATION */
-            jQuery(".dvteamgrid figure").hover(
+            $(".dvteamgrid figure").hover(
                     function () {
                         "use strict";
-                        jQuery(this).find('.dv-member-zoom').removeClass('dv-zoomout');
-                        jQuery(this).find('.dv-member-zoom').addClass('dv-zoomin');
+                        $(this).find('.dv-member-zoom').removeClass('dv-zoomout');
+                        $(this).find('.dv-member-zoom').addClass('dv-zoomin');
+                        $(this).find('.wp-post-image').removeClass('dv-zoomout');
+                        $(this).find('.wp-post-image').addClass('dv-zoomin');
                     }, function () {
                 "use strict";
-                jQuery(this).find('.dv-member-zoom').removeClass('dv-zoomin');
-                jQuery(this).find('.dv-member-zoom').addClass('dv-zoomout');
+                $(this).find('.dv-member-zoom').removeClass('dv-zoomin');
+                $(this).find('.dv-member-zoom').addClass('dv-zoomout');
+                $(this).find('.wp-post-image').removeClass('dv-zoomin');
+                $(this).find('.wp-post-image').addClass('dv-zoomout');
             }
             );
         }
