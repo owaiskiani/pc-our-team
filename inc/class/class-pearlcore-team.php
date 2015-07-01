@@ -92,6 +92,7 @@ if (!class_exists('Pearlcore_Team_Plugin')) :
                 'single_template' => 'standard',
                 'redirect' => true,
                 'single_image_size' => 'small',
+                'single_image_style' => 'square',
             );
 
             if (!get_option('pearlcore_team_options')) {
@@ -300,17 +301,38 @@ if (!class_exists('Pearlcore_Team_Plugin')) :
                     <div class="pc_our_team_lightbox permanent">
                         <div class="width25 left">
                             <div class="pc_image_wrapper">
-                                <img src="" class="image circle"/>
+                                <?php 
+                                if(isset($this->options['single_image_style']) && !empty($this->options['single_image_style'])):
+                                    $pc_image_style = $this->options['single_image_style'];
+                                    else:
+                                    $pc_image_style = 'square';
+                                endif; 
+                                ?>
+                                <img src="" class="image <?php echo $pc_image_style;?>"/>
                             </div>
                             <h4 class="title"></h4>
-                            <div class="social "></div>
+                            <?php 
+                                if(isset($this->options['single_social']) && ($this->options['single_social'] == 'yes')):
+                                    $pc_image_style = 'style="display:block;"';
+                                    else:
+                                    $pc_image_style = 'style="display:none;"';
+                                endif; 
+                                ?>
+                            <div class="social " <?php echo $pc_image_style; ?>></div>
                         </div>
 
                         <div class="left width75">
                             <h2 class="name"></h2>
                             <div class="sc-content"></div>
-                            <h2 class="skills-title">My Skills</h2>
-                            <div class="skills">
+                            <?php 
+                                if(isset($this->options['single_skills']) && ($this->options['single_skills'] == 'yes')):
+                                    $pc_image_style = 'style="display:block;"';
+                                    else:
+                                    $pc_image_style = 'style="display:none;"';
+                                endif; 
+                                ?>
+                            <h2 class="skills-title" <?php echo $pc_image_style;?>>My Skills</h2>
+                            <div class="skills" <?php echo $pc_image_style;?>>
 
                             </div>
                         </div>

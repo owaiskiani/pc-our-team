@@ -117,13 +117,13 @@ jQuery(document).ready(function ($) {
         }
         var options = {
             itemWidth: 250,
-            autoResize: true,
+            autoResize: false,
             align: 'left',
             direction: 'left',
             container: jQuery('#pc_our_team_masonry'),
-            offset: 1,
+            offset: 0,
             outerOffset: 0,
-            fillEmptySpace: false,
+            fillEmptySpace: true,
             flexibleWidth: gridwidth
         };
         var handler = $('#pc_our_team_masonry li');

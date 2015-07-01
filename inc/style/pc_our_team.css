@@ -15,25 +15,22 @@
     top: 0;
     width: 100%;
     height: 100%;
-    z-index: 1000;
+    z-index: 100000000 !important;
     background: rgba(0,0,0,0.75);
     display: none;
 }
 .pc_team_single_popup{
     cursor: pointer;
 }
-.pc_our_team_lightbox{
-    z-index: 1001;
-}
 #pc_our_team_lightbox .pc_our_team_loghtbox_close{
-    width: 100%;
-    float: left;
+    position: absolute;
+    top: 6px;
+    right: 8px;
 }
 #pc_our_team_lightbox .pc_our_team_loghtbox_close span{
     float: right;
     text-align: center;
     line-height: 19px;
-    margin-right: 15px;
     width: 30px;
     height: 30px;
     background: url(../img/pc-icons.png) 2px 1px no-repeat;
@@ -49,17 +46,48 @@
 #pc_our_team_lightbox .pc_our_team_lightbox .social a img{
     width: 25px;
 }
-#pc_our_team_lightbox .progress{
-    height: 12px;
-    margin-bottom: 20px;
-    overflow: hidden;
-    background-color: #F5F5F5;
-    border-radius: 5px;
-    -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);    
+#pc_our_team_lightbox .title{
+    font-weight: 600;
+    font-size: 18px;
 }
 
+#pc_our_team_lightbox .pc_our_team_lightbox{
+    box-shadow: 0 0 4px #fff;
+    -moz-box-shadow: 0 0 4px #fff;
+    -webkit-box-shadow: 0 0 4px #fff;
+    overflow: hidden;
+    display: none;
+    background: #fff;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    z-index: 100000001 !important;
+    position: relative;
+}
+#pc_our_team_lightbox .pc_our_team_lightbox .social{
+    text-align: center;
+}
+#pc_our_team_lightbox .pc_our_team_lightbox .name,
+#pc_our_team_lightbox .pc_our_team_lightbox .sc-content,
+#pc_our_team_lightbox .pc_our_team_lightbox .skills-title{
+    text-align: left;
+}
+.pc_our_team_lightbox.honeycomb .social img{
+    display: inline-block !important;
+}
+.pc_our_team_lightbox .image.circle{
+    width: 155px;
+    height: 155px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+.sc_our_team_lightbox .image.square {
+    width: 155px;
+    height: auto;
+}
+.pc_our_team_lightbox .pc_image_wrapper{
+
+}
 
 /**
 * Skill Bar
@@ -135,37 +163,7 @@
     line-height: 40px !important;
 }
 
-#pc_our_team_lightbox .title{
-    font-weight: 600;
-    font-size: 18px;
-}
-#pc_our_team_lightbox .pc_our_team_lightbox .social{
-    text-align: center;
-}
-#pc_our_team_lightbox .pc_our_team_lightbox{
-    box-shadow: 0 0 4px #fff;
-    -moz-box-shadow: 0 0 4px #fff;
-    -webkit-box-shadow: 0 0 4px #fff;
-    overflow: hidden;
-    display: none;
-    background: #fff;
-    width: 90%;
-    margin: 0 auto;
-    text-align: center;
 
-}
-.pc_our_team_lightbox.honeycomb .social img{
-    display: inline-block !important;
-}
-.pc_our_team_lightbox .image.circle{
-    width: 100%;
-}
-.pc_our_team_lightbox .pc_image_wrapper{
-    width: 155px;
-    height: 155px;
-    border-radius: 100%;
-    overflow: hidden;
-}
 
 /**
 * Grid CSS
@@ -1626,9 +1624,9 @@ div.team_bio.right div.view {
     #pc_our_team_lightbox .pc_our_team_lightbox{
         padding: 15px 0;
         margin: 0 auto;
-        width: 960px;
+        width: 840px;
         min-height: 250px;
-        margin-top: 50px;
+        margin-top: 130px;
         max-height: 80%;
         overflow-y: auto;        
     }

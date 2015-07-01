@@ -141,6 +141,16 @@
                 </tr>
                 
                 <tr id="">
+                    <td>Popup Image Style</td>
+                    <td>
+                        <select name="pearlcore_team_options[single_image_style]">
+                            <option value="square" <?php echo 'square' == esc_attr( $single_image_style ) ? 'selected=selected' : ''; ?>>Square</option>
+                            <option value="circle" <?php echo 'circle' == esc_attr( $single_image_style ) ? 'selected=selected' : ''; ?>>Circle</option>
+                        </select>
+                    </td>
+                </tr>
+                
+                <tr id="">
                     <td>Display Skills</td>
                     <td>
                         <select name="pearlcore_team_options[single_skills]">
