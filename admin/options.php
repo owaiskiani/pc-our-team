@@ -125,7 +125,8 @@
                         <select name="pearlcore_team_options[single_template]">
                             <option>Select Template</option>
                             <option value="standard" <?php echo 'standard' == esc_attr( $single_template ) ? 'selected=selected' : ''; ?>>Theme Default (single post)</option>
-                            <option value="popup_card" <?php echo 'popup_card' == esc_attr( $single_template ) ? 'selected=selected' : ''; ?>>Popup Card</option>
+                            <option value="popup" <?php echo 'popup' == esc_attr( $single_template ) ? 'selected=selected' : ''; ?>>Popup Card</option>
+                            <option value="panel" <?php echo 'panel' == esc_attr( $single_template ) ? 'selected=selected' : ''; ?>>Panel</option>
                         </select>
                     </td>
                 </tr>

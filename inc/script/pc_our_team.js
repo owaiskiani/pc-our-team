@@ -18,7 +18,7 @@ jQuery(document).ready(function ($) {
             height: member_height
         });
     });
-    $(document).on('click', '.pc_our_team_loghtbox_close', function (event) {
+    $(document).on('click', '.pc_close_button', function (event) {
         if ($('#pc_our_team_lightbox').hasClass('show')) {
             $('.pc_our_team_lightbox').slideUp(300, function () {
                 $('#pc_our_team_lightbox').fadeOut(300);
@@ -26,6 +26,10 @@ jQuery(document).ready(function ($) {
             $('#pc_our_team_lightbox').removeClass('show');
         }
     });
+
+    /**
+     * Popup Js
+     */
     $('.pc_team_single_popup').click(function (e) {
         var item = null;
         if ($(this).hasClass('pc_team_member')) {
@@ -33,7 +37,6 @@ jQuery(document).ready(function ($) {
         } else {
             item = $(this).parents('.pc_team_member');
         }
-
         build_popup(item);
         e.stopPropagation();
         e.preventDefault();
@@ -41,7 +44,7 @@ jQuery(document).ready(function ($) {
     function build_popup(item) {
         $('.pc_our_team_lightbox .name').html($('.pc_team_member_name a', item).html());
         $('.pc_our_team_lightbox .skills').html($('.pc_team_skills', item).html());
-        $('.pc_our_team_lightbox .sc-content').html($('.pc_team_content', item).html());
+        $('.pc_our_team_lightbox .pc-content').html($('.pc_team_content', item).html());
         $('.pc_our_team_lightbox .social').html($('.icons', item).html());
         $('.pc_our_team_lightbox .title').html($('.pc_team_member_jobtitle', item).html());
         $('.pc_our_team_lightbox .image').attr('src', $('.wp-post-image', item).attr('src'));
@@ -52,6 +55,42 @@ jQuery(document).ready(function ($) {
             });
         });
     }
+    /**
+     * Panel JS
+     */
+    $('.pc_our_team_panel .pc-right-panel .pc_close_button').click(function () {
+        if ($('#pc_our_team_panel').hasClass('show')) {
+            $('.pc_our_team_panel').removeClass('slidein');
+            $('#pc_our_team_panel').delay(450).fadeOut(300);
+            $('#pc_our_team_panel').removeClass('show');
+        }
+    });
+    $('.pc_team_single_panel').click(function (e) {
+        var item = null;
+        if ($(this).hasClass('pc_team_member')) {
+            item = $(this);
+        } else {
+            item = $(this).parents('.pc_team_member');
+        }
+        build_panel(item);
+        e.stopPropagation();
+        e.preventDefault();
+
+    });
+    function build_panel(item) {
+        $('.pc_our_team_panel .pc-name').html($('.pc_team_member_name a', item).html());
+        $('.pc_our_team_panel .pc-skills').html($('.pc_team_skills', item).html());
+        $('.pc_our_team_panel .pc_personal_quote').html($('.pc_personal_quote', item).html());
+        $('.pc_our_team_panel .pc-content').html($('.pc_team_content', item).html());
+        $('.pc_our_team_panel .pc-social').html($('.icons', item).html());
+        $('.pc_our_team_panel .pc-title').html($('.pc_team_member_jobtitle', item).html());
+        $('.pc_our_team_panel .pc-image').attr('src', $('.wp-post-image', item).attr('src'));
+        $('#pc_our_team_panel').fadeIn(350, function () {
+            $('.pc_our_team_panel').addClass('slidein');
+            $('#pc_our_team_panel').addClass('show');
+        });
+    }
+
 
     $('#pc_our_team .pc_team_member').hover(function () {
         $('.pc_team_member_overlay', this).stop(true, false).fadeIn(440);

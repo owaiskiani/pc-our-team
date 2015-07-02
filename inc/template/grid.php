@@ -23,10 +23,15 @@ endif;
     <div class="clear"></div>
     <?php
     if ($members->have_posts()) {
+        if (isset($this->options['single_template']) && !empty($this->options['single_template'])):
+            $pc_single_view_class = 'pc_team_single_' . $this->options['single_template'];
+        else:
+            $pc_single_view_class = '';
+        endif;
         while ($members->have_posts()) {
             $members->the_post();
             ?>
-            <div itemscope itemtype="http://schema.org/Person" class="pc_team_member <?php echo $this->options['single_template'] == 'popup_card' ? 'pc_team_single_popup' : ''; ?>">
+            <div itemscope itemtype="http://schema.org/Person" class="pc_team_member <?php echo $pc_single_view_class; ?>">
                 <div class="pc_team_member_inner">
 
                     <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title() ?>" class="pc_team_single_popup" >
@@ -81,7 +86,7 @@ endif;
 
 
                     <div class="pc_team_member_overlay"></div>
-                    <?php if ($this->options['single_template'] !== 'popup_card'): ?>
+                    <?php if ($this->options['single_template'] == 'standard'): ?>
                         <div class="pc_team_more">
                             <a href="<?php the_permalink() ?>" rel="bookmark" class=""> 
                                 <img src="<?php echo PC_TEAM_URL . 'inc/img/more.png' ?>"/>

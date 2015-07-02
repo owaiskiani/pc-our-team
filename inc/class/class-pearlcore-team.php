@@ -301,45 +301,64 @@ if (!class_exists('Pearlcore_Team_Plugin')) :
                     <div class="pc_our_team_lightbox permanent">
                         <div class="width25 left">
                             <div class="pc_image_wrapper">
-                                <?php 
-                                if(isset($this->options['single_image_style']) && !empty($this->options['single_image_style'])):
+                                <?php
+                                if (isset($this->options['single_image_style']) && !empty($this->options['single_image_style'])):
                                     $pc_image_style = $this->options['single_image_style'];
-                                    else:
+                                else:
                                     $pc_image_style = 'square';
-                                endif; 
+                                endif;
                                 ?>
-                                <img src="" class="image <?php echo $pc_image_style;?>"/>
+                                <img src="" class="image <?php echo $pc_image_style; ?>"/>
                             </div>
                             <h4 class="title"></h4>
-                            <?php 
-                                if(isset($this->options['single_social']) && ($this->options['single_social'] == 'yes')):
-                                    $pc_image_style = 'style="display:block;"';
-                                    else:
-                                    $pc_image_style = 'style="display:none;"';
-                                endif; 
-                                ?>
-                            <div class="social " <?php echo $pc_image_style; ?>></div>
+                            <?php
+                            if (isset($this->options['single_social']) && ($this->options['single_social'] == 'yes')):
+                                $pc_social_hide = 'style="display:block;"';
+                            else:
+                                $pc_social_hide = 'style="display:none;"';
+                            endif;
+                            ?>
+                            <div class="social " <?php echo $pc_social_hide; ?>></div>
                         </div>
 
                         <div class="left width75">
                             <h2 class="name"></h2>
-                            <div class="sc-content"></div>
-                            <?php 
-                                if(isset($this->options['single_skills']) && ($this->options['single_skills'] == 'yes')):
-                                    $pc_image_style = 'style="display:block;"';
-                                    else:
-                                    $pc_image_style = 'style="display:none;"';
-                                endif; 
-                                ?>
-                            <h2 class="skills-title" <?php echo $pc_image_style;?>>My Skills</h2>
-                            <div class="skills" <?php echo $pc_image_style;?>>
+                            <div class="pc-content"></div>
+                            <?php
+                            if (isset($this->options['single_skills']) && ($this->options['single_skills'] == 'yes')):
+                                $pc_skill_hide = 'style="display:block;"';
+                            else:
+                                $pc_skill_hide = 'style="display:none;"';
+                            endif;
+                            ?>
+                            <h2 class="skills-title" <?php echo $pc_skill_hide; ?>>My Skills</h2>
+                            <div class="skills" <?php echo $pc_skill_hide; ?>>
 
                             </div>
                         </div>
-
-
-                        <div class="pc_our_team_loghtbox_close">
+                        <div class="pc_our_team_loghtbox_close pc_close_button">
                             <span></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="pc_our_team_panel" class="scrollbar-macosx"></div>
+                <div class="pc_our_team_panel permanent">
+                    <div class="pc-left-panel" <?php echo $pc_social_hide; ?>>
+                        <div class="pc-social " <?php echo $pc_social_hide; ?>></div>
+                    </div>
+                    <div class="pc-right-panel">
+                <!--                        <span class="pc_team_icon-close pc_close_button"></span>-->
+                        <div class="pc_our_team_loghtbox_close pc_close_button">
+                            <span></span>
+                        </div>
+                        <h2 class="pc-name"></h2>
+                        <img src="" class="pc-image <?php echo $pc_image_style; ?>">            
+                        <h3 class="pc-title"></h3>
+                        <div class="pc_personal_quote"></div>
+                        <div class="pc-content"></div>
+                        <div class="">
+                            <h3 class="skills-title" <?php echo $pc_skill_hide; ?>>Skills</h3>
+                            <div class="pc-skills" <?php echo $pc_skill_hide; ?>></div>
                         </div>
                     </div>
                 </div>
@@ -597,7 +616,9 @@ if (!class_exists('Pearlcore_Team_Plugin')) :
                 #pc_our_team a,
                 .pc_our_team_lightbox .name,
                 .pc_our_team_lightbox .title,.out_team_title h4 a,.next_team .inner_icon i,.prev_team .inner_icon i,
-                #pc_our_team_lightbox .pc_our_team_lightbox .skills-title{ 
+                #pc_our_team_lightbox .pc_our_team_lightbox .skills-title,
+                .pc_our_team_panel .pc-right-panel .pc-title,
+                .pc_our_team_panel .pc-right-panel .skills-title{ 
                     color: #<?php echo $this->options['text_color']; ?>; 
                 }
                 .grid#pc_our_team .pc_team_member .pc_team_member_name,
@@ -607,7 +628,8 @@ if (!class_exists('Pearlcore_Team_Plugin')) :
                 #pc_our_team_lightbox .progress,.progress,
                 .team-list .team-item .team-desc,
                 .nav_team .next_team:before,
-                .nav_team .prev_team:before,.out_team_title:before,.dv-member-name,.dv-member-zoom{
+                .nav_team .prev_team:before,.out_team_title:before,.dv-member-name,.dv-member-zoom,
+                .pc_our_team_panel .pc-right-panel .pc-name,.pc_skill_bar_title span{
                     background-color: #<?php echo $this->options['text_color']; ?>;
                 }
                 .stacked#pc_our_team .pc_team_member,.team-list .team-item,.next_team, .prev_team{ 
@@ -812,6 +834,38 @@ if (!class_exists('Pearlcore_Team_Plugin')) :
         }
 
     }
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 
     
 

@@ -16,13 +16,18 @@ $main_classes = '';
     <?php if ($members->have_posts()) { ?>
         <ul class="dvteamgrid" id="pc_our_team_masonry">
             <?php
+            if (isset($this->options['single_template']) && !empty($this->options['single_template'])):
+                    $pc_single_view_class = 'pc_team_single_' . $this->options['single_template'];
+                else:
+                    $pc_single_view_class = '';
+                endif;
             while ($members->have_posts()) {
                 $members->the_post();
                 ?>
                 <li class="pc_team_member">
-                    <figure itemscope itemtype="http://schema.org/Person" class=" <?php echo $this->options['single_template'] == 'popup_card' ? 'pc_team_single_popup' : ''; ?>">
+                    <figure itemscope itemtype="http://schema.org/Person" class="pc_team_member <?php echo $pc_single_view_class; ?>">
 
-                        <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title() ?>" class="pc_team_single_popup" >
+                        <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title() ?>" class="<?php echo $pc_single_view_class; ?>" >
                             <?php
                             if (has_post_thumbnail()) {
                                 $medium_image_url = wp_get_attachment_image_src(get_post_thumbnail_id($members->ID), 'medium');
@@ -38,7 +43,9 @@ $main_classes = '';
                         <figcaption>
                             <div class="dv-member-desc">
                                 <div><span class="dv-member-name"><?php the_title() ?></span></div>
-                                <div><span class="dv-member-info"><?php echo get_post_meta(get_the_ID(), 'team_member_title', true); ?></span></div>
+                                <div><span class="dv-member-info">
+                                    <?php echo get_post_meta(get_the_ID(), 'team_member_title', true); ?></span>
+                                </div>
                             </div>
                         </figcaption>
                     </figure>
@@ -72,17 +79,10 @@ $main_classes = '';
 
                         $this->get_social($facebook, $twitter, $linkedin, $gplus, $email);
                         ?>
-
                     </div>
-
                     <div class="pc_team_skills" <?php echo $pc_hide; ?>>
-
                         <?php echo $this->pc_get_skills_html(get_the_ID()); ?>
-
-
                     </div>
-
-
                     <div class="pc_team_member_overlay"></div>
                 </li>
 

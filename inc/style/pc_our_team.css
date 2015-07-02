@@ -9,6 +9,191 @@
 .left{ float: left; box-sizing: border-box; }
 
 .pc_team_member .pc_team_member_name a{ text-decoration: none;}
+
+/**
+* Panel Css
+*/
+
+#pc_our_team_panel{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background: rgba(0,0,0,0.75);  
+    display: none;
+}
+
+
+.pc_our_team_panel{
+    position: fixed;
+    top: 0;
+    right: -600px;
+    height: 100%;
+    z-index: 99999999;
+    width: 500px;
+    background: #313131;
+    transition: 0.45s all ease-in-out;
+    -moz-transition: 0.45s all ease-in-out;
+    -webkit-transition: 0.45s all ease-in-out;
+    /*display: none;*/
+    
+}
+
+.pc_our_team_panel.slidein{
+    right: 0;
+    display: block;
+    
+}
+
+.pc_our_team_panel .pc-left-panel{
+    width: 40px;
+    left: 0;
+    height: 100%;
+    position: absolute;
+    background: #212121;
+    text-align: center;
+}
+.pc_our_team_panel .pc-left-panel .pc-social img{
+    width: 25px;
+    display: block;
+    margin: 10px auto;
+}
+.pc_our_team_panel .pc-right-panel{
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: absolute;
+    left: 40px;
+    width: 460px;
+    padding: 0 0 0 0;
+}
+
+.pc_our_team_panel .pc-right-panel .pc-close{
+    float: right;
+}
+
+.pc_our_team_panel .pc-right-panel .pc_team_icon-close,
+#pc_our_team_lightbox .pc_team_icon-close{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#pc_our_team_lightbox .pc_team_icon-close{
+    color: #969696;
+}
+
+#pc_our_team_lightbox .pc_personal_quote{
+    margin-top: 15px;
+}
+
+#pc_our_team_lightbox .pc_personal_quote .pc_team_icon-quote-left{
+    font-size: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+    line-height: 20px;
+}
+
+#pc_our_team_lightbox .pc_personal_quote .pc_personal_quote_content{
+    font-size: 20px;
+    line-height: 22px;
+    margin-left: 10px;
+}
+
+.pc_our_team_panel .pc-right-panel .pc-name{
+    text-align: left;
+    background: red;
+    margin: 0 0 0 0;
+    padding: 10px 15px;
+    color: #fff;
+    font-size: 26px;
+    line-height: 30px;
+}
+
+
+
+.pc_our_team_panel .pc-right-panel .pc-title{
+    margin: 0 0 0 0;
+    padding: 20px 15px 15px 20px;
+    color: #fff;
+}
+
+.pc_our_team_panel .pc-right-panel .pc_personal_quote{
+    padding: 10px 20px;
+    color: #f9f9f9;
+}
+
+.pc_our_team_panel .pc-right-panel .pc_personal_quote .pc_team_icon-quote-left{
+    font-size: 30px;
+    line-height: 30px;
+}
+
+.pc_our_team_panel .pc-right-panel .pc_personal_quote .pc_personal_quote_content{
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.pc_our_team_panel .pc-right-panel .pc-content p,
+.pc_our_team_panel .pc-right-panel .pc-content{
+    color: #c7c7c7;
+    padding: 0px 10px;
+}
+
+/*.pc_our_team_panel .pc-right-panel .pc-content p{
+    padding: 10px 15px;
+}*/
+
+.pc_our_team_panel .pc-right-panel .skills-title{
+    border-top: 1px solid #414141;
+    padding: 15px 20px;
+    color: #fff;
+    margin-top: 10px;
+}
+
+.pc_our_team_panel .pc-right-panel .pc-skills{
+    
+    padding: 5px 20px;
+    color: #fff;
+}
+
+.pc_our_team_panel .pc-right-panel .progress span{
+    color: #fff;
+    float: right;
+    padding-right: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    
+}
+
+.pc_our_team_panel .pc-right-panel .pc-image{
+    width: 100%;
+    margin: 0;
+}
+
+.pc_our_team_panel .pc-right-panel .pc-image.circle{
+    width: 300px;
+    height: 300px;
+    border-radius: 300px;
+    margin: 10px auto;
+    display: block;
+}
+
+/**
+* Popup Css
+*/
+
+
 #pc_our_team_lightbox{
     position: fixed;
     left: 0;
@@ -22,12 +207,12 @@
 .pc_team_single_popup{
     cursor: pointer;
 }
-#pc_our_team_lightbox .pc_our_team_loghtbox_close{
+.pc_our_team_loghtbox_close{
     position: absolute;
     top: 6px;
     right: 8px;
 }
-#pc_our_team_lightbox .pc_our_team_loghtbox_close span{
+.pc_our_team_loghtbox_close span{
     float: right;
     text-align: center;
     line-height: 19px;
@@ -68,7 +253,7 @@
     text-align: center;
 }
 #pc_our_team_lightbox .pc_our_team_lightbox .name,
-#pc_our_team_lightbox .pc_our_team_lightbox .sc-content,
+#pc_our_team_lightbox .pc_our_team_lightbox .pc-content,
 #pc_our_team_lightbox .pc_our_team_lightbox .skills-title{
     text-align: left;
 }
@@ -81,7 +266,7 @@
     border-radius: 100%;
     overflow: hidden;
 }
-.sc_our_team_lightbox .image.square {
+.pc_our_team_lightbox .image.square {
     width: 155px;
     height: auto;
 }
@@ -1636,7 +1821,7 @@ div.team_bio.right div.view {
         font-size: 26px;
     }
 
-    #pc_our_team_lightbox .pc_our_team_lightbox .sc-content{
+    #pc_our_team_lightbox .pc_our_team_lightbox .pc-content{
         font-size: 15px;
         line-height: 18px;
     }
@@ -1716,7 +1901,7 @@ div.team_bio.right div.view {
         box-sizing: border-box;
         background: rgba(150,150,150,0.2);
     }
-    .pc_team_single_member .pc_single_main.sc-skills{
+    .pc_team_single_member .pc_single_main.pc-skills{
         width: 46%;
         margin-right: 2%;
     }
@@ -1771,7 +1956,7 @@ div.team_bio.right div.view {
         font-size: 26px;
     }
 
-    #pc_our_team_lightbox .pc_our_team_lightbox .sc-content{
+    #pc_our_team_lightbox .pc_our_team_lightbox .pc-content{
         font-size: 15px;
         line-height: 18px;
     }
@@ -1808,4 +1993,74 @@ div.team_bio.right div.view {
         font-size: 16px;
     }
 
+}
+
+@media( max-width: 500px ) {
+    
+    .pc_our_team_panel{
+        width: 100%;
+    }
+    .pc_our_team_panel .pc-right-panel{
+        width: auto;
+    }
+    
+}
+
+@font-face {
+	font-family: 'pc_our_team';
+	src:url('../fonts/pc_our_team.eot?r6ju34');
+	src:url('../fonts/pc_our_team.eot?#iefixr6ju34') format('embedded-opentype'),
+		url('../fonts/pc_our_team.ttf?r6ju34') format('truetype'),
+		url('../fonts/pc_our_team.woff?r6ju34') format('woff'),
+		url('../fonts/pc_our_team.svg?r6ju34#pc_our_team') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="pc_team_icon-"], [class*=" pc_team_icon-"] {
+	font-family: 'pc_our_team';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.pc_team_icon-quote-left:before {
+	content: "\e600";
+}
+.pc_team_icon-close:before {
+	content: "\e60a";
+}
+.pc_team_icon-vimeo-square:before {
+	content: "\e601";
+}
+.pc_team_icon-pinterest-p:before {
+	content: "\e602";
+}
+.pc_team_icon-share-alt:before {
+	content: "\e603";
+}
+.pc_team_icon-google-plus:before {
+	content: "\e604";
+}
+.pc_team_icon-linkedin:before {
+	content: "\e605";
+}
+.pc_team_icon-twitter:before {
+	content: "\e606";
+}
+.pc_team_icon-phone:before {
+	content: "\e607";
+}
+.pc_team_icon-envelope-o:before {
+	content: "\e608";
+}
+.pc_team_icon-facebook:before {
+	content: "\e609";
 }
