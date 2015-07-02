@@ -747,6 +747,7 @@
 .grid_circles2#pc_our_team .icons img{
     width: 25px;
 }
+
 /**
 * Stacked css
 **/
@@ -772,7 +773,7 @@
     width: 100%;
 }
 .stacked#pc_our_team .pc_team_member .pc_team_member_name{
-
+    text-align: center;
     margin: 10px 0;
     padding-bottom: 10px;
     border-bottom: 1px dashed #404040;    
