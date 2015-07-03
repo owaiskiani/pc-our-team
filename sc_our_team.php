@@ -22,7 +22,7 @@ if (!defined('PC_TEAM_URL'))
     define('PC_TEAM_URL', plugin_dir_url(__FILE__));
 
 
-require_once ( plugin_dir_path(__FILE__) . 'inc/class/class-pearlcore-team.php' );
+require_once ( PC_TEAM_PATH . 'inc/class/class-pearlcore-team.php' );
 
 
 // activation and de-activation hooks

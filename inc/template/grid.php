@@ -75,7 +75,7 @@ endif;
                         $gplus = get_post_meta(get_the_ID(), 'team_member_gplus', true);
                         $email = get_post_meta(get_the_ID(), 'team_member_email', true);
 
-                        $this->get_social($facebook, $twitter, $linkedin, $gplus, $email);
+                        $this->pc_get_social(get_the_ID());
                         ?>
 
                     </div>

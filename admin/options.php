@@ -73,6 +73,16 @@
                     </td>
                 </tr>
                 
+                <tr id="social_icons_style_row">
+                    <td>Social Icons Style</td>
+                    <td>
+                        <select name="pearlcore_team_options[social_style]">
+                            <option value="square" <?php echo 'square' == esc_attr( $social_style ) ? 'selected=selected' : ''; ?>>Square</option>
+                            <option value="circle" <?php echo 'circle' == esc_attr( $social_style ) ? 'selected=selected' : ''; ?>>Circle</option>
+                        </select>
+                    </td>
+                </tr>
+                
                 <tr id="">
                     <td>Display Name</td>
                     <td>

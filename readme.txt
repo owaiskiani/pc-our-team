@@ -31,13 +31,15 @@ Available Customizations:
 * Customize the height of each row
 * Customize the margin
 * Display Social Icons & email icon
+* Choose social icon style
 * Unlimited Colors
 * Single member page social icons
+* Choose Popup or side panel for single member view
 * Add/Edit/Search/Display your staff or team members
 * Display members by group/deparment (category)
 * It comes with different styles to choose from: boxes or circles
 * Boosts SEO with schema.org markup
-* output your team members anywhere with the shortcode [our-team]
+* Output your team members anywhere with the shortcode [our-team]
 * Easy to setup
 
 

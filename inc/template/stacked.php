@@ -48,21 +48,17 @@ $members = new WP_Query($args);
                         </h3>
                     <?php endif; ?>
                 </div>
-                <div class="pc_team_content pc_team_member_right">
+                <div class="pc_team_member_right">
                     <div class='icons <?php echo 'yes' == $this->options['social'] ? '' : 'hidden'; ?>'>
                         <?php
-                        $facebook = get_post_meta(get_the_ID(), 'team_member_facebook', true);
-                        $twitter = get_post_meta(get_the_ID(), 'team_member_twitter', true);
-                        $linkedin = get_post_meta(get_the_ID(), 'team_member_linkedin', true);
-                        $gplus = get_post_meta(get_the_ID(), 'team_member_gplus', true);
-                        $email = get_post_meta(get_the_ID(), 'team_member_email', true);
-                        $this->get_social($facebook, $twitter, $linkedin, $gplus, $email);
+                        $this->pc_get_social(get_the_ID());
                         ?>
                     </div>                   
                     <?php the_content(); ?>
                 </div>
-
-                <div class="pc_team_skills">
+                
+                <div class="pc_team_content hidden"><?php the_content(); ?></div>
+                <div class="pc_team_skills hidden">
                     <?php echo $this->pc_get_skills_html(get_the_ID()); ?>
                 </div>                
             </div>

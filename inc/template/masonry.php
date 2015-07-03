@@ -71,13 +71,9 @@ $main_classes = '';
                     <div class='icons <?php echo 'yes' == $this->options['social'] ? '' : 'hidden'; ?>' <?php echo $pc_hide; ?>>
 
                         <?php
-                        $facebook = get_post_meta(get_the_ID(), 'team_member_facebook', true);
-                        $twitter = get_post_meta(get_the_ID(), 'team_member_twitter', true);
-                        $linkedin = get_post_meta(get_the_ID(), 'team_member_linkedin', true);
-                        $gplus = get_post_meta(get_the_ID(), 'team_member_gplus', true);
-                        $email = get_post_meta(get_the_ID(), 'team_member_email', true);
+                        
 
-                        $this->get_social($facebook, $twitter, $linkedin, $gplus, $email);
+                        $this->pc_get_social(get_the_ID());
                         ?>
                     </div>
                     <div class="pc_team_skills" <?php echo $pc_hide; ?>>

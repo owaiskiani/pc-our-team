@@ -7,15 +7,20 @@
 $args = $this->pc_get_args($group);
 $members = new WP_Query($args);
 ?>
-<div class="wapper_our_team">
+<div id="pc_our_team" class="wapper_our_team">
 
     <?php if ($members->have_posts()) : ?>
         <ul id="content_our_team" class="roundabout-holder">
             <?php
+            if (isset($this->options['single_template']) && !empty($this->options['single_template'])):
+                $pc_single_view_class = 'pc_team_single_' . $this->options['single_template'];
+            else:
+                $pc_single_view_class = '';
+            endif;
             while ($members->have_posts()) :
                 $members->the_post();
                 ?>
-                <li class="roundabout-moveable-item" style="">
+                <li class="roundabout-moveable-item pc_team_member <?php echo $pc_single_view_class; ?>" style="">
                     <div class="our_team-image">
                         <?php
                         if (has_post_thumbnail()) {
@@ -30,7 +35,7 @@ $members = new WP_Query($args);
                     </div>
                     <div class="content_team">
                         <div class="out_team_title">
-                            <h4  itemprop="name">
+                            <h4  itemprop="name" class="pc_team_member_name">
                                 <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title() ?>"><?php the_title() ?></a>
                             </h4>
                             <div class="regency" itemprop="jobtitle">
@@ -47,16 +52,18 @@ $members = new WP_Query($args);
                                     ?>
                                 </div>
                             </div>
-                            <ul class="social_team">
+                            <div class="icons">
                                 <?php
-                                $facebook = get_post_meta(get_the_ID(), 'team_member_facebook', true);
-                                $twitter = get_post_meta(get_the_ID(), 'team_member_twitter', true);
-                                $linkedin = get_post_meta(get_the_ID(), 'team_member_linkedin', true);
-                                $gplus = get_post_meta(get_the_ID(), 'team_member_gplus', true);
-                                $email = get_post_meta(get_the_ID(), 'team_member_email', true);
-                                $this->get_social($facebook, $twitter, $linkedin, $gplus, $email);
+                                
+                                $this->pc_get_social(get_the_ID());
                                 ?>
-                            </ul>
+                            </div>
+                        </div>
+                        <div class="pc_team_content hidden">
+                            <?php the_content(); ?>
+                        </div>
+                        <div class="pc_team_skills hidden">
+                            <?php echo $this->pc_get_skills_html(get_the_ID()); ?>
                         </div>
                     </div>
                     <div class="clear"></div>

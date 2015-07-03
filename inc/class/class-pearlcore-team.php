@@ -78,6 +78,7 @@ if (!class_exists('Pearlcore_Team_Plugin')) :
             $options = array(
                 'template' => 'grid',
                 'social' => 'yes',
+                'social_style' => 'square',
                 'single_social' => 'yes',
                 'single_skills' => 'yes',
                 'name' => 'yes',
@@ -232,11 +233,9 @@ if (!class_exists('Pearlcore_Team_Plugin')) :
          * Load Setting Teemplate 
          */
         public function pearlcore_team_settings() {
-
             if (isset($_REQUEST['pc_our_team_save']) && $_REQUEST['pc_our_team_save'] == 'Update') :
                 update_option('pearlcore_team_options', $_REQUEST['pearlcore_team_options']);
             endif;
-
             include_once PC_TEAM_PATH . 'admin/options.php';
         }
 
@@ -295,75 +294,7 @@ if (!class_exists('Pearlcore_Team_Plugin')) :
             else:
                 include PC_TEAM_PATH . 'inc/template/' . $template . '.php';
             endif;
-            if ($template !== 'brick'):
-                ?>
-                <div id="pc_our_team_lightbox" class="scrollbar-macosx">
-                    <div class="pc_our_team_lightbox permanent">
-                        <div class="width25 left">
-                            <div class="pc_image_wrapper">
-                                <?php
-                                if (isset($this->options['single_image_style']) && !empty($this->options['single_image_style'])):
-                                    $pc_image_style = $this->options['single_image_style'];
-                                else:
-                                    $pc_image_style = 'square';
-                                endif;
-                                ?>
-                                <img src="" class="image <?php echo $pc_image_style; ?>"/>
-                            </div>
-                            <h4 class="title"></h4>
-                            <?php
-                            if (isset($this->options['single_social']) && ($this->options['single_social'] == 'yes')):
-                                $pc_social_hide = 'style="display:block;"';
-                            else:
-                                $pc_social_hide = 'style="display:none;"';
-                            endif;
-                            ?>
-                            <div class="social " <?php echo $pc_social_hide; ?>></div>
-                        </div>
 
-                        <div class="left width75">
-                            <h2 class="name"></h2>
-                            <div class="pc-content"></div>
-                            <?php
-                            if (isset($this->options['single_skills']) && ($this->options['single_skills'] == 'yes')):
-                                $pc_skill_hide = 'style="display:block;"';
-                            else:
-                                $pc_skill_hide = 'style="display:none;"';
-                            endif;
-                            ?>
-                            <h2 class="skills-title" <?php echo $pc_skill_hide; ?>>My Skills</h2>
-                            <div class="skills" <?php echo $pc_skill_hide; ?>>
-
-                            </div>
-                        </div>
-                        <div class="pc_our_team_loghtbox_close pc_close_button">
-                            <span></span>
-                        </div>
-                    </div>
-                </div>
-                <div id="pc_our_team_panel" class="scrollbar-macosx"></div>
-                <div class="pc_our_team_panel permanent">
-                    <div class="pc-left-panel" <?php echo $pc_social_hide; ?>>
-                        <div class="pc-social " <?php echo $pc_social_hide; ?>></div>
-                    </div>
-                    <div class="pc-right-panel">
-                <!--                        <span class="pc_team_icon-close pc_close_button"></span>-->
-                        <div class="pc_our_team_loghtbox_close pc_close_button">
-                            <span></span>
-                        </div>
-                        <h2 class="pc-name"></h2>
-                        <img src="" class="pc-image <?php echo $pc_image_style; ?>">            
-                        <h3 class="pc-title"></h3>
-                        <div class="pc_personal_quote"></div>
-                        <div class="pc-content"></div>
-                        <div class="">
-                            <h3 class="skills-title" <?php echo $pc_skill_hide; ?>>Skills</h3>
-                            <div class="pc-skills" <?php echo $pc_skill_hide; ?>></div>
-                        </div>
-                    </div>
-                </div>
-                <?php
-            endif;
             $output = ob_get_clean();
             return $output;
         }
@@ -643,6 +574,72 @@ if (!class_exists('Pearlcore_Team_Plugin')) :
                 }
 
             </style>
+
+            <div id="pc_our_team_lightbox" class="scrollbar-macosx">
+                <div class="pc_our_team_lightbox permanent">
+                    <div class="width25 left">
+                        <div class="pc_image_wrapper">
+                            <?php
+                            if (isset($this->options['single_image_style']) && !empty($this->options['single_image_style'])):
+                                $pc_image_style = $this->options['single_image_style'];
+                            else:
+                                $pc_image_style = 'square';
+                            endif;
+                            ?>
+                            <img src="" class="image <?php echo $pc_image_style; ?>"/>
+                        </div>
+                        <h4 class="title"></h4>
+                        <?php
+                        if (isset($this->options['single_social']) && ($this->options['single_social'] == 'yes')):
+                            $pc_social_hide = 'style="display:block;"';
+                        else:
+                            $pc_social_hide = 'style="display:none;"';
+                        endif;
+                        ?>
+                        <div class="social " <?php echo $pc_social_hide; ?>></div>
+                    </div>
+
+                    <div class="left width75">
+                        <h2 class="name"></h2>
+                        <div class="pc-content"></div>
+                        <?php
+                        if (isset($this->options['single_skills']) && ($this->options['single_skills'] == 'yes')):
+                            $pc_skill_hide = 'style="display:block;"';
+                        else:
+                            $pc_skill_hide = 'style="display:none;"';
+                        endif;
+                        ?>
+                        <h2 class="skills-title" <?php echo $pc_skill_hide; ?>>My Skills</h2>
+                        <div class="skills" <?php echo $pc_skill_hide; ?>>
+
+                        </div>
+                    </div>
+                    <div class="pc_our_team_loghtbox_close pc_close_button">
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+            <div id="pc_our_team_panel" class="scrollbar-macosx"></div>
+            <div class="pc_our_team_panel permanent">
+                <div class="pc-left-panel" <?php echo $pc_social_hide; ?>>
+                    <div class="pc-social " <?php echo $pc_social_hide; ?>></div>
+                </div>
+                <div class="pc-right-panel">
+            <!--                        <span class="pc_team_icon-close pc_close_button"></span>-->
+                    <div class="pc_our_team_loghtbox_close pc_close_button">
+                        <span></span>
+                    </div>
+                    <h2 class="pc-name"></h2>
+                    <img src="" class="pc-image <?php echo $pc_image_style; ?>">            
+                    <h3 class="pc-title"></h3>
+                    <div class="pc_personal_quote"></div>
+                    <div class="pc-content"></div>
+                    <div class="">
+                        <h3 class="skills-title" <?php echo $pc_skill_hide; ?>>Skills</h3>
+                        <div class="pc-skills" <?php echo $pc_skill_hide; ?>></div>
+                    </div>
+                </div>
+            </div>
             <?php
         }
 
@@ -656,6 +653,7 @@ if (!class_exists('Pearlcore_Team_Plugin')) :
         public function pearlcore_set_single_content($content) {
             global $post;
             $pc_job_title = '';
+
             if (is_single()) :
                 if ($post->post_type == 'team_member') :
                     if ('yes' == $this->options['title']) :
@@ -664,16 +662,12 @@ if (!class_exists('Pearlcore_Team_Plugin')) :
                         $pc_job_title .= '</div>';
                     endif;
                     if ($this->options['single_social'] == 'yes'):
-                        $facebook = get_post_meta(get_the_ID(), 'team_member_facebook', true);
-                        $twitter = get_post_meta(get_the_ID(), 'team_member_twitter', true);
-                        $linkedin = get_post_meta(get_the_ID(), 'team_member_linkedin', true);
-                        $gplus = get_post_meta(get_the_ID(), 'team_member_gplus', true);
-                        $email = get_post_meta(get_the_ID(), 'team_member_email', true);
+
 
                         $content .= '<div class="clear"></div>'
-                                . '<div class="pearlcore_team_single_icons">'
+                                . '<div class="pearlcore_team_single_icons icons icons">'
                                 . '<h2 class="skills-title">Connect with me on Social Network</h2>';
-                        $content .= $this->pearlcore_get_social_content($facebook, $twitter, $linkedin, $gplus, $email);
+                        $content .= $this->pearlcore_get_social_content(get_the_ID());
                         $content .= '</div>';
 
                     endif;
@@ -684,10 +678,19 @@ if (!class_exists('Pearlcore_Team_Plugin')) :
                         $content .= $this->pc_get_skills_html(get_the_ID());
                         $content .= '</div>';
                     endif;
+                    $pc_single_member = '<div id="pc_our_team">';
+                    $pc_single_member .= '<div class="pc_team_member">';
+                    $pc_single_member .= $pc_job_title . $content;
+                    $pc_single_member .= '</div>';
+                    $pc_single_member .= '</div>';
                 endif;
+
+            else:
+                $pc_single_member = $content;
             endif;
 
-            return $pc_job_title . $content;
+
+            return $pc_single_member;
         }
 
         /**
@@ -699,22 +702,60 @@ if (!class_exists('Pearlcore_Team_Plugin')) :
          * @param string $gplus
          * @param string $email
          */
-        public function get_social($facebook, $twitter, $linkedin, $gplus, $email) {
+        public function pc_get_social($pc_member_id) {
+            $facebook = get_post_meta($pc_member_id, 'team_member_facebook', true);
+            $twitter = get_post_meta($pc_member_id, 'team_member_twitter', true);
+            $linkedin = get_post_meta($pc_member_id, 'team_member_linkedin', true);
+            $gplus = get_post_meta($pc_member_id, 'team_member_gplus', true);
+            $email = get_post_meta($pc_member_id, 'team_member_email', true);
+            $content = '';
             if ($facebook != ''):
-                echo '<a href="' . $facebook . '" target="_blank"><img src="' . PC_TEAM_URL . 'inc/img/fb.png" class="pc-social"/></a>';
+                $content .= '<a href="' . $facebook . '" target="_blank">';
+                if (isset($this->options['social_style']) && $this->options['social_style'] == 'square'):
+                    $content .= '<span class="pc_team_icon-facebook"></span>';
+                else:
+                    $content .= '<img src="' . PC_TEAM_URL . 'inc/img/fb.png" class="pc-social"/>';
+                endif;
+                $content .= '</a>';
+
             endif;
             if ($twitter != ''):
-                echo '<a href="' . $twitter . '" target="_blank"><img src="' . PC_TEAM_URL . 'inc/img/twitter.png" class="pc-social"/></a>';
+                $content .= '<a href="' . $twitter . '" target="_blank">';
+                if (isset($this->options['social_style']) && $this->options['social_style'] == 'square'):
+                    $content .= '<span class="pc_team_icon-twitter"></span>';
+                else:
+                    $content .= '<img src="' . PC_TEAM_URL . 'inc/img/twitter.png" class="pc-social"/>';
+                endif;
+                $content .= '</a>';
             endif;
             if ($linkedin != ''):
-                echo '<a href="' . $linkedin . '" target="_blank"><img src="' . PC_TEAM_URL . 'inc/img/linkedin.png" class="pc-social"/></a>';
+                $content .= '<a href="' . $linkedin . '" target="_blank">';
+                if (isset($this->options['social_style']) && $this->options['social_style'] == 'square'):
+                    $content .= '<span class="pc_team_icon-linkedin"></span>';
+                else:
+                    $content .= '<img src="' . PC_TEAM_URL . 'inc/img/linkedin.png" class="pc-social"/>';
+                endif;
+                $content .= '</a>';
             endif;
             if ($gplus != ''):
-                echo '<a href="' . $gplus . '" target="_blank"><img src="' . PC_TEAM_URL . 'inc/img/google.png" class="pc-social"/></a>';
+                $content .= '<a href="' . $gplus . '" target="_blank">';
+                if (isset($this->options['social_style']) && $this->options['social_style'] == 'square'):
+                    $content .= '<span class="pc_team_icon-google-plus"></span>';
+                else:
+                    $content .= '<img src="' . PC_TEAM_URL . 'inc/img/google.png" class="pc-social"/>';
+                endif;
+                $content .= '</a>';
             endif;
             if ($email != ''):
-                echo '<a href=mailto:' . $email . '><img src="' . PC_TEAM_URL . 'inc/img/email.png" class="pc-social"/></a>';
+                $content .= '<a href="mailto:' . $gplus . '">';
+                if (isset($this->options['social_style']) && $this->options['social_style'] == 'square'):
+                    $content .= '<span class="pc_team_icon-envelope-o"></span>';
+                else:
+                    $content .= '<img src="' . PC_TEAM_URL . 'inc/img/email.png" class="pc-social"/>';
+                endif;
+                $content .= '</a>';
             endif;
+            echo $content;
         }
 
         /**
@@ -727,25 +768,60 @@ if (!class_exists('Pearlcore_Team_Plugin')) :
          * @param string $email
          * @return string
          */
-        public function pearlcore_get_social_content($facebook, $twitter, $linkedin, $gplus, $email) {
-
+        public function pearlcore_get_social_content($pc_member_id) {
+            $facebook = get_post_meta($pc_member_id, 'team_member_facebook', true);
+            $twitter = get_post_meta($pc_member_id, 'team_member_twitter', true);
+            $linkedin = get_post_meta($pc_member_id, 'team_member_linkedin', true);
+            $gplus = get_post_meta($pc_member_id, 'team_member_gplus', true);
+            $email = get_post_meta($pc_member_id, 'team_member_email', true);
             $content = '';
 
             if ('yes' == $this->options['social']) :
                 if ($facebook != ''):
-                    $content .= '<a href="' . $facebook . '" target="_blank"><img src="' . PC_TEAM_URL . 'inc/img/fb.png" class="pc-social"/></a>';
+                    $content .= '<a href="' . $facebook . '" target="_blank">';
+                    if (isset($this->options['social_style']) && $this->options['social_style'] == 'square'):
+                        $content .= '<span class="pc_team_icon-facebook"></span>';
+                    else:
+                        $content .= '<img src="' . PC_TEAM_URL . 'inc/img/fb.png" class="pc-social"/>';
+                    endif;
+                    $content .= '</a>';
+
                 endif;
                 if ($twitter != ''):
-                    $content .= '<a href="' . $twitter . '" target="_blank"><img src="' . PC_TEAM_URL . 'inc/img/twitter.png" class="pc-social"/></a>';
+                    $content .= '<a href="' . $twitter . '" target="_blank">';
+                    if (isset($this->options['social_style']) && $this->options['social_style'] == 'square'):
+                        $content .= '<span class="pc_team_icon-twitter"></span>';
+                    else:
+                        $content .= '<img src="' . PC_TEAM_URL . 'inc/img/twitter.png" class="pc-social"/>';
+                    endif;
+                    $content .= '</a>';
                 endif;
                 if ($linkedin != ''):
-                    $content .= '<a href="' . $linkedin . '" target="_blank"><img src="' . PC_TEAM_URL . 'inc/img/linkedin.png" class="pc-social"/></a>';
+                    $content .= '<a href="' . $linkedin . '" target="_blank">';
+                    if (isset($this->options['social_style']) && $this->options['social_style'] == 'square'):
+                        $content .= '<span class="pc_team_icon-linkedin"></span>';
+                    else:
+                        $content .= '<img src="' . PC_TEAM_URL . 'inc/img/linkedin.png" class="pc-social"/>';
+                    endif;
+                    $content .= '</a>';
                 endif;
                 if ($gplus != ''):
-                    $content .= '<a href="' . $gplus . '" target="_blank"><img src="' . PC_TEAM_URL . 'inc/img/google.png" class="pc-social"/></a>';
+                    $content .= '<a href="' . $gplus . '" target="_blank">';
+                    if (isset($this->options['social_style']) && $this->options['social_style'] == 'square'):
+                        $content .= '<span class="pc_team_icon-google-plus"></span>';
+                    else:
+                        $content .= '<img src="' . PC_TEAM_URL . 'inc/img/google.png" class="pc-social"/>';
+                    endif;
+                    $content .= '</a>';
                 endif;
                 if ($email != ''):
-                    $content .= '<a href=mailto:' . $email . '><img src="' . PC_TEAM_URL . 'inc/img/email.png" class="pc-social"/></a>';
+                    $content .= '<a href="mailto:' . $gplus . '">';
+                    if (isset($this->options['social_style']) && $this->options['social_style'] == 'square'):
+                        $content .= '<span class="pc_team_icon-envelope-o"></span>';
+                    else:
+                        $content .= '<img src="' . PC_TEAM_URL . 'inc/img/email.png" class="pc-social"/>';
+                    endif;
+                    $content .= '</a>';
                 endif;
             endif;
             return $content;
@@ -834,6 +910,46 @@ if (!class_exists('Pearlcore_Team_Plugin')) :
         }
 
     }
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 
     
 
