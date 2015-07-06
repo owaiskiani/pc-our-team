@@ -63,7 +63,7 @@ $members = new WP_Query($args);
                                 <?php the_content(); ?>
                             </div>                            
 
-                            <div class='icons <?php echo 'yes' == $this->options['social'] ? '' : 'hidden'; ?>' style="display:none;">
+                            <div class='icons hidden'>
                                 <?php
                                 
                                 $this->pc_get_social(get_the_ID());
