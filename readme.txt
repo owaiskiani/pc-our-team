@@ -12,7 +12,7 @@ The best way to display your employees, team members, or any type of list. Multi
 
 == Description ==
 
-Our Team Showcase allows you to easily create and display your team members & staff and show them on your site with ease. Your visitors will see a beautiful & animated
+Our Team Plugin allows you to easily create and display your team members & staff and show them on your site with ease. Your visitors will see a beautiful & animated
 list of your team, with their pictures, links to social icons, and link to each member page. 
 
 First, install and activate the plugin. You will be automatically re-directed to the plugin settongs page. Select your preferred settings and colors, Add your staff, upload pictures and finally
